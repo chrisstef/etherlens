@@ -13,7 +13,12 @@ const LoginForm = () => {
             </div>
             <div className="md:w-1/3 max-w-sm">
                 <div className="text-center">
-                    <Button className="w-full" type="submit" size="lg">
+                    <Button
+                        className="w-full"
+                        type="submit"
+                        variant="default"
+                        size="lg"
+                    >
                         Connect Wallet
                     </Button>
                 </div>
@@ -24,14 +29,19 @@ const LoginForm = () => {
                 </div>
                 <Input type="email" placeholder="Email" />
                 <div className="text-center">
-                    <Button className="mt-6 w-full" variant="outline" size="lg">
-                        Connect with Magic
+                    <Button
+                        className="mt-6 w-full"
+                        type="submit"
+                        variant="outline"
+                        size="lg"
+                    >
+                        Send Magic Link
                     </Button>
                 </div>
                 <div className="mt-4 font-semibold text-sm bg-slate-100 p-4 text-slate-500 text-center rounded-md flex items-center justify-center">
                     <Sparkles className="mr-2" />
                     <span>
-                        We'll email you a Magic code for password-free
+                        Get a magic link to your email for password-free
                         authentication.
                     </span>
                 </div>
