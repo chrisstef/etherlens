@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/Logo";
 
-export const Navbar = () => {
+const Navbar = () => {
     return (
         <nav className="fixed top-0 w-full h-14 px-4 border-b shadow-sm bg-white flex items-center">
             <div className="md:max-w-screen-4xl mx-auto flex items-center w-full justify-between">
@@ -16,3 +16,5 @@ export const Navbar = () => {
         </nav>
     );
 };
+
+export default Navbar;

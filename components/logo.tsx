@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export const Logo = () => {
+const Logo = () => {
     return (
         <Link href="/">
             <div className="hover:opacity-75 transition duration-200 items-center gap-x-2 hidden md:flex">
@@ -13,3 +13,5 @@ export const Logo = () => {
         </Link>
     );
 };
+
+export default Logo;
