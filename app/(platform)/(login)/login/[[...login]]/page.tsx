@@ -1,11 +1,11 @@
 import { LoginForm } from "./_components/LoginForm";
 
 export const metadata = {
-    title: "Authenticate | EtherLens",
+    title: "Login | EtherLens",
 };
 
-const Page = () => {
+const LoginPage = () => {
     return <LoginForm />;
 };
 
-export default Page;
+export default LoginPage;

@@ -1,8 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useAccount } from "wagmi";
+import { Navbar } from "./_components/Navbar";
+import { Sidebar } from "./_components/Sidebar";
+import { dashboardLinks } from "@/config/links";
 
 export default function DashboardLayout({
     children,
@@ -19,9 +22,14 @@ export default function DashboardLayout({
     }, [isConnected, isConnecting, router]);
 
     return (
-        <div className="h-full relative">
-            <div className="hidden h-full md:flex md:w-72 md:flex-col md:fixed md:inset-y-0 z-80 bg-gray-900"></div>
-            <main className="md:pl-72 pb-10">{children}</main>
+        <div className="flex min-h-screen flex-col space-y-6">
+            <Navbar />
+            <div className=" grid flex-1 gap-12 md:grid-cols-[200px_1fr]">
+                <aside className="hidden w-[250px] flex-col md:flex">
+                    <Sidebar items={dashboardLinks.data} />
+                </aside>
+                <main className="flex w-full flex-1 flex-col">{children}</main>
+            </div>
         </div>
     );
 }

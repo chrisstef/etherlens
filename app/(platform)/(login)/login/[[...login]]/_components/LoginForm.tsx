@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useModal } from "connectkit";
 import { useAccount } from "wagmi";
@@ -8,18 +9,21 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export const LoginForm = () => {
-    const { isConnected, isConnecting } = useAccount();
+    const { isConnected } = useAccount();
     const { setOpen } = useModal();
     const router = useRouter();
 
     const handleConnectWallet = () => {
-        if (!isConnected && !isConnecting) {
-            // User is not connected and not in the process of connecting, open the modal
+        if (!isConnected) {
             setOpen(true);
-        } else {
-            router.push("/dashboard");
         }
     };
+
+    useEffect(() => {
+        if (isConnected) {
+            router.replace("/dashboard");
+        }
+    }, [isConnected, router]);
 
     return (
         <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
@@ -49,13 +53,14 @@ export const LoginForm = () => {
                         Or
                     </p>
                 </div>
-                <Input type="email" placeholder="Email" />
+                <Input type="email" placeholder="Email" disabled />
                 <div className="text-center">
                     <Button
                         className="mt-6 w-full cursor-pointer hover:bg-black hover:text-primary-foreground"
                         type="submit"
                         variant="outline"
                         size="lg"
+                        disabled
                     >
                         <Sparkles className="mr-2 h-4 w-4" />
                         Send Magic Link
