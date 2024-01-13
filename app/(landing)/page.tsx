@@ -32,7 +32,8 @@ const LandingPage = () => {
                 Unlock real-time insights, analyze token distribution, explore
                 historical price trends, and stay informed about network
                 activities. From crypto enthusiasts to seasoned investors,
-                EtherLens is your gateway to a smarter GHO token experience.
+                EtherLens is your gateway to deep dive into GH0 and explore the
+                ecosystem.
             </div>
             <Button className="mt-6" size="lg" asChild>
                 <Link href="/sign-up">Get Started</Link>
