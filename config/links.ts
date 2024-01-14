@@ -18,11 +18,6 @@ export const dashboardLinks: Navigation = {
             icon: "activity",
         },
         {
-            title: "Historical Price",
-            href: "/dashboard/historical-price",
-            icon: "activity",
-        },
-        {
             title: "Network Activity",
             href: "/dashboard/network-activity",
             icon: "activity",

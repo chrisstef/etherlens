@@ -1,14 +1,24 @@
-const DashboardPage = () => {
-    return (
-        <div className="px-10">
-            <h2 className="text-2xl md:text-4xl font-bold text-center md:text-left">
-                Explore the GHO Ecosystem{" "}
-            </h2>
-            <p className="text-muted-foreground font-light text-sm md:text-lg text-center md:text-left">
-                Get a snapshot of GHO token activity with real-time insights.{" "}
-            </p>
-        </div>
-    );
+import Shell from "../_components/layout/Shell";
+import DashboardHeader from "../_components/dashboard-header";
+import DashboardCards from "../_components/dashboard-cards";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Dashboard | GHO Lens",
+    description:
+        "Get a snapshot of GHO token activity with real-time insights.",
 };
 
-export default DashboardPage;
+export default function Dashboard() {
+    return (
+        <Shell>
+            <DashboardHeader
+                heading="Explore the GHO Ecosystem"
+                text="Get a snapshot of GHO token activity with real-time insights."
+            />
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-1">
+                <DashboardCards />
+            </div>
+        </Shell>
+    );
+}

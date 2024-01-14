@@ -1,7 +1,7 @@
 import { LoginForm } from "./_components/LoginForm";
 
 export const metadata = {
-    title: "Login | EtherLens",
+    title: "Login | GHO Lens",
 };
 
 const LoginPage = () => {

@@ -5,7 +5,7 @@ import UserAddressForm from "../../_components/user-address-form";
 import Shell from "../../_components/layout/Shell";
 
 export const metadata: Metadata = {
-    title: "Settings | EtherLens",
+    title: "Settings | GHO Lens",
     description: "Manage account and preferences.",
 };
 
