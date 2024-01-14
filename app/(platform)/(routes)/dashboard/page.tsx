@@ -4,7 +4,7 @@ import DashboardCards from "../_components/dashboard-cards";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Dashboard | GHOLens",
+    title: "Dashboard | GHO Lens",
     description:
         "Get a snapshot of GHO token activity with real-time insights.",
 };
