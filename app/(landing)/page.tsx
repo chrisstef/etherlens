@@ -16,7 +16,7 @@ const LandingPage = () => {
                     <Medal className="h-6 w-6 mr-2" />
                     EtherLens: GHO Edition{" "}
                 </div>
-                <h1 className="text-2xl md:text-5xl text-center text-neutral-800 mb-6">
+                <h1 className="text-2xl md:text-5xl text-center mb-6">
                     Empowering Your Blockchain Journey
                 </h1>
                 <div
@@ -35,7 +35,7 @@ const LandingPage = () => {
                 EtherLens is your gateway to GH0 ecosystem.
             </div>
             <Button className="mt-6" size="lg" asChild>
-                <Link href="/login">Get Started</Link>
+                <Link href="/login">Get started</Link>
             </Button>
         </div>
     );

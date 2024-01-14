@@ -49,16 +49,13 @@ export const LoginForm = () => {
                     </div>
                 </div>
                 <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-                    <p className="mx-4 mb-0 text-center font-semibold text-slate-500">
-                        Or
-                    </p>
+                    <p className="mx-4 mb-0 text-center font-semibold">Or</p>
                 </div>
                 <Input type="email" placeholder="Email" disabled />
                 <div className="text-center">
                     <Button
                         className="mt-6 w-full cursor-pointer hover:bg-black hover:text-primary-foreground"
                         type="submit"
-                        variant="outline"
                         size="lg"
                         disabled
                     >
@@ -66,7 +63,7 @@ export const LoginForm = () => {
                         Send Magic Link
                     </Button>
                 </div>
-                <div className="mt-4 font-semibold text-sm bg-slate-100 p-4 text-slate-500 text-center rounded-md flex items-center justify-center">
+                <div className="mt-4 font-medium text-sm p-4 border text-center rounded-md flex items-center justify-center">
                     <Wand2 className="mr-2" />
                     <span>
                         Get a magic link to your email for password-free

@@ -15,14 +15,13 @@ import {
     BsChevronRight,
     BsChevronUp,
     BsFire,
-    BsMoonStars,
-    BsSun,
 } from "react-icons/bs";
 import { FaRegStar, FaSort, FaUserAlt } from "react-icons/fa";
 import { ImSpinner8, ImStatsBars } from "react-icons/im";
 import { LuSettings } from "react-icons/lu";
 import { MdDeleteForever, MdOutlineLogout } from "react-icons/md";
 import { RxDashboard, RxMixerHorizontal } from "react-icons/rx";
+import { IoCopy } from "react-icons/io5";
 
 export type IconKeys = keyof typeof icons;
 
@@ -39,10 +38,6 @@ const icons = {
     dashboard: RxDashboard,
     activity: BsActivity,
     settings: LuSettings,
-
-    // Mode Toggle
-    moon: BsMoonStars,
-    sun: BsSun,
 
     // Navigation
     back: BsChevronLeft,
@@ -67,6 +62,7 @@ const icons = {
     mixer: RxMixerHorizontal,
     check: BsCheck2,
     star: FaRegStar,
+    copy: IoCopy,
 };
 
 export const Icons: IconsType = icons;
