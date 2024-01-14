@@ -10,7 +10,7 @@ const config = createConfig(
             process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "",
 
         // Required
-        appName: "EtherLens",
+        appName: "GHOLens",
 
         // Optional
         appDescription: "A tool to help navigate in the GHO ecosystem",

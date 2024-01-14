@@ -14,7 +14,7 @@ const LandingPage = () => {
             <div className={cn("flex items-center justify-center flex-col")}>
                 <div className="mb-4 flex items-center border shadow-sm p-4 bg-amber-100 text-amber-700 rounded-full">
                     <Medal className="h-6 w-6 mr-2" />
-                    EtherLens: GHO Edition{" "}
+                    GHOLens: GHO Edition{" "}
                 </div>
                 <h1 className="text-2xl md:text-5xl text-center mb-6">
                     Empowering Your Blockchain Journey
@@ -32,7 +32,7 @@ const LandingPage = () => {
                 Unlock real-time insights, analyze token distribution, explore
                 historical price trends, and stay informed about network
                 activities. From crypto enthusiasts to seasoned investors,
-                EtherLens is your gateway to GH0 ecosystem.
+                GHOLens is your gateway to GH0 ecosystem.
             </div>
             <Button className="mt-6" size="lg" asChild>
                 <Link href="/login">Get started</Link>

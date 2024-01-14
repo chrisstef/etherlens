@@ -5,6 +5,8 @@ import {
     AiOutlineEllipsis,
     AiOutlinePlus,
     AiOutlineWarning,
+    AiOutlineDollarCircle,
+    AiOutlineBank,
 } from "react-icons/ai";
 import { BiCalendar, BiHistory } from "react-icons/bi";
 import {
@@ -63,6 +65,8 @@ const icons = {
     check: BsCheck2,
     star: FaRegStar,
     copy: IoCopy,
+    dollar: AiOutlineDollarCircle,
+    bank: AiOutlineBank,
 };
 
 export const Icons: IconsType = icons;
