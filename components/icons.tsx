@@ -7,6 +7,7 @@ import {
     AiOutlineWarning,
     AiOutlineDollarCircle,
     AiOutlineBank,
+    AiOutlineDashboard,
 } from "react-icons/ai";
 import { BiCalendar, BiHistory } from "react-icons/bi";
 import {
@@ -38,8 +39,8 @@ const icons = {
 
     // Dashboard Icons
     dashboard: RxDashboard,
-    activity: BsActivity,
     settings: LuSettings,
+    holdings: AiOutlineDashboard,
 
     // Navigation
     back: BsChevronLeft,
@@ -67,6 +68,7 @@ const icons = {
     copy: IoCopy,
     dollar: AiOutlineDollarCircle,
     bank: AiOutlineBank,
+    activity: BsActivity,
 };
 
 export const Icons: IconsType = icons;

@@ -8,19 +8,19 @@ export const dashboardLinks: Navigation = {
             icon: "dashboard",
         },
         {
+            title: "Token Distribution",
+            href: "/dashboard/token-distribution",
+            icon: "mixer",
+        },
+        {
             title: "Transactions",
             href: "/dashboard/transactions",
             icon: "activity",
         },
         {
-            title: "Token Distribution",
-            href: "/dashboard/token-distribution",
-            icon: "activity",
-        },
-        {
-            title: "Network Activity",
-            href: "/dashboard/network-activity",
-            icon: "activity",
+            title: "Holdings",
+            href: "/dashboard/holdings",
+            icon: "holdings",
         },
         {
             title: "Settings",

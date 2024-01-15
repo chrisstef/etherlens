@@ -1,14 +1,22 @@
-const Transactionspage = () => {
+import { Metadata } from "next";
+import DashboardHeader from "../../_components/dashboard-header";
+import Shell from "../../_components/layout/Shell";
+
+export const metadata: Metadata = {
+    title: "Transactions | GHO Lens",
+    description: "Analyze GHO token transactions over time.",
+};
+
+const TransactionsPage = () => {
     return (
-        <div className="px-10">
-            <h2 className="text-2xl md:text-4xl font-bold text-center md:text-left">
-                Transactions{" "}
-            </h2>
-            <p className="text-muted-foreground font-light text-sm md:text-lg text-center md:text-left">
-                Analyze GHO token transactions with real-time insights.{" "}
-            </p>
-        </div>
+        <Shell>
+            <DashboardHeader
+                heading="Transactions"
+                text="Analyze GHO token transactions with real-time insights."
+            />
+            <div className="grid grid-cols-1 gap-6">Transactions</div>
+        </Shell>
     );
 };
 
-export default Transactionspage;
+export default TransactionsPage;
