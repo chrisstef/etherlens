@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
+import Spinner from "./Spinner";
 
 const DashboardChart = () => {
     const [timeperiod, setTimeperiod] = useState<string>("7d");
@@ -32,7 +33,9 @@ const DashboardChart = () => {
     return (
         <Card className="">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle>Native to the Aave Protocol.</CardTitle>
+                <CardTitle className="text-xl md:text-2xl">
+                    Native to the Aave Protocol.
+                </CardTitle>
                 <div className="flex items-center mb-4">
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -58,8 +61,14 @@ const DashboardChart = () => {
                     </DropdownMenu>
                 </div>
             </CardHeader>
-            <CardContent>
-                <LineChart coinHistory={coinHistory} />
+            <CardContent className="h-96">
+                {coinHistory ? (
+                    <LineChart coinHistory={coinHistory} />
+                ) : (
+                    <div className="flex items-center justify-center">
+                        <Spinner />
+                    </div>
+                )}{" "}
             </CardContent>
         </Card>
     );

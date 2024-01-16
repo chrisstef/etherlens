@@ -6,6 +6,8 @@ import {
     GhoService,
 } from "@aave/contract-helpers";
 import * as markets from "@bgd-labs/aave-address-book";
+import { formatReserves } from "@aave/math-utils";
+import dayjs from "dayjs";
 
 // Sample RPC address for querying ETH mainnet
 const provider = new ethers.providers.JsonRpcProvider(
@@ -32,30 +34,51 @@ const incentiveDataProviderContract = new UiIncentiveDataProvider({
     chainId: ChainId.mainnet,
 });
 
-const reserveIncentives = () =>
-    incentiveDataProviderContract.getReservesIncentivesDataHumanized({
+const GhoServiceContract = new GhoService({
+    uiGhoDataProviderAddress: markets.AaveV3Ethereum.UI_GHO_DATA_PROVIDER,
+    provider,
+});
+
+export async function fetchContractData() {
+    // Object containing array of pool reserves and market base currency data
+    // { reservesArray, baseCurrencyData }
+    const reserves = await poolDataProviderContract.getReservesHumanized({
         lendingPoolAddressProvider:
             markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
     });
 
-const userIncentives = ({ currentAddress }: any) =>
-    incentiveDataProviderContract.getUserReservesIncentivesDataHumanized({
-        lendingPoolAddressProvider:
-            markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-        user: currentAddress,
-    });
+    // Object containing array or users aave positions and active eMode category
+    // { userReserves, userEmodeCategoryId }
+    const userReserves =
+        await poolDataProviderContract.getUserReservesHumanized({
+            lendingPoolAddressProvider:
+                markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
+            user: currentAccount,
+        });
 
-const reserves = () =>
-    poolDataProviderContract.getReservesHumanized({
-        lendingPoolAddressProvider:
-            markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-    });
+    // Array of incentive tokens with price feed and emission APR
+    const reserveIncentives =
+        await incentiveDataProviderContract.getReservesIncentivesDataHumanized({
+            lendingPoolAddressProvider:
+                markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
+        });
 
-const userReserves = ({ currentAddress }: any) =>
-    poolDataProviderContract.getUserReservesHumanized({
-        lendingPoolAddressProvider:
-            markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-        user: currentAddress,
-    });
+    // Dictionary of claimable user incentives
+    const userIncentives =
+        await incentiveDataProviderContract.getUserReservesIncentivesDataHumanized(
+            {
+                lendingPoolAddressProvider:
+                    markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
+                user: currentAccount,
+            }
+        );
 
-export { reserves, userReserves, reserveIncentives, userIncentives };
+    console.log({ reserves, userReserves, reserveIncentives, userIncentives });
+}
+
+export {
+    provider,
+    poolDataProviderContract,
+    incentiveDataProviderContract,
+    GhoServiceContract,
+};

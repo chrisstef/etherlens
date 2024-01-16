@@ -53,7 +53,7 @@ const LineChart = ({ coinHistory }: any) => {
     };
 
     const options = {
-        responsive: true,
+        maintainAspectRatio: false, // Set to false for better responsiveness
         plugins: {
             legend: {
                 position: "top" as const,
