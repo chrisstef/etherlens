@@ -6,7 +6,7 @@ import DashboardChart from "../_components/dashboard-chart";
 
 export const metadata: Metadata = {
     title: "Dashboard | GHO Lens",
-    description: "Get a snapshot of the GHO Ecosystem with real-time insights.",
+    description: "Get a snapshot of the GHO Stablecoin and its Ecosystem.",
 };
 
 export default function Dashboard() {
@@ -14,7 +14,7 @@ export default function Dashboard() {
         <Shell>
             <DashboardHeader
                 heading="Explore the GHO Ecosystem"
-                text="Get a snapshot of the GHO Ecosystem with real-time insights."
+                text="Get a snapshot of the GHO Stablecoin and its Ecosystem."
             />
             <div className="grid grid-cols-1 gap-4 md:grid-cols-1">
                 <DashboardCards />

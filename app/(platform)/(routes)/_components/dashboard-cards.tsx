@@ -62,7 +62,7 @@ const DashboardCards = () => {
                         ) : (
                             `${
                                 tokenData?.currentPrice !== null
-                                    ? `$${tokenData?.currentPrice}`
+                                    ? `${tokenData?.currentPrice.toLocaleString()}`
                                     : "-"
                             }`
                         )}
@@ -84,7 +84,7 @@ const DashboardCards = () => {
                         ) : (
                             `${
                                 tokenData?.marketCap !== null
-                                    ? `$${tokenData?.marketCap}`
+                                    ? `${tokenData?.marketCap.toLocaleString()}`
                                     : "-"
                             }`
                         )}
@@ -95,7 +95,7 @@ const DashboardCards = () => {
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
-                        Daily Volume
+                        Volume (24h)
                     </CardTitle>
                     <Icons.fire className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
@@ -106,7 +106,7 @@ const DashboardCards = () => {
                         ) : (
                             `${
                                 tokenData?.dailyVolume !== null
-                                    ? `$${tokenData?.dailyVolume}`
+                                    ? `${tokenData?.dailyVolume.toLocaleString()}`
                                     : "-"
                             }`
                         )}
@@ -117,7 +117,7 @@ const DashboardCards = () => {
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
-                        Volume/Market cap (24h){" "}
+                        Volume/Market Cap{" "}
                     </CardTitle>
                     <Icons.activity className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>

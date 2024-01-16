@@ -12,9 +12,6 @@ const provider = new ethers.providers.JsonRpcProvider(
     "https://eth-mainnet.public.blastapi.io"
 );
 
-// User address to fetch data for, insert address here
-const currentAccount = "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c";
-
 // View contract used to fetch all reserves data (including market base currency data), and user reserves
 // Using Aave V3 Eth Mainnet address for demo
 const poolDataProviderContract = new UiPoolDataProvider({
@@ -32,30 +29,14 @@ const incentiveDataProviderContract = new UiIncentiveDataProvider({
     chainId: ChainId.mainnet,
 });
 
-const reserveIncentives = () =>
-    incentiveDataProviderContract.getReservesIncentivesDataHumanized({
-        lendingPoolAddressProvider:
-            markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-    });
+const GhoServiceContract = new GhoService({
+    uiGhoDataProviderAddress: markets.AaveV3Ethereum.UI_GHO_DATA_PROVIDER,
+    provider,
+});
 
-const userIncentives = ({ currentAddress }: any) =>
-    incentiveDataProviderContract.getUserReservesIncentivesDataHumanized({
-        lendingPoolAddressProvider:
-            markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-        user: currentAddress,
-    });
-
-const reserves = () =>
-    poolDataProviderContract.getReservesHumanized({
-        lendingPoolAddressProvider:
-            markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-    });
-
-const userReserves = ({ currentAddress }: any) =>
-    poolDataProviderContract.getUserReservesHumanized({
-        lendingPoolAddressProvider:
-            markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-        user: currentAddress,
-    });
-
-export { reserves, userReserves, reserveIncentives, userIncentives };
+export {
+    provider,
+    poolDataProviderContract,
+    incentiveDataProviderContract,
+    GhoServiceContract,
+};
