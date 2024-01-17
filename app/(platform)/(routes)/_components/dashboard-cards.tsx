@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import millify from "millify";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Icons } from "@/components/icons";
 import { fetchTokenData } from "@/services/api";
@@ -31,11 +32,11 @@ const DashboardCards = () => {
 
                 if (isMounted) {
                     setTokenData(data);
-                    setLoading(false); // Set loading to false when data is fetched
+                    setLoading(false);
                 }
             } catch (error) {
-                setLoading(false); // Set loading to false on error as well
-                // Handle errors here if needed
+                setLoading(false);
+                console.log(error);
             }
         };
 
@@ -46,6 +47,7 @@ const DashboardCards = () => {
             isMounted = false;
         };
     }, []); // Run only once on component mount
+
     return (
         <div className="grid gap-4 grid-cols-1 lg:grid-cols-4">
             <Card>
@@ -58,7 +60,7 @@ const DashboardCards = () => {
                 <CardContent>
                     <div className="lg:text-lg xl:text-2xl font-bold">
                         {loading ? (
-                            <Skeleton className="h-8 w-[46%]" />
+                            <Skeleton className="h-8 w-[25%]" />
                         ) : (
                             `${
                                 tokenData?.currentPrice !== null
@@ -80,11 +82,11 @@ const DashboardCards = () => {
                 <CardContent>
                     <div className="lg:text-lg xl:text-2xl font-bold">
                         {loading ? (
-                            <Skeleton className="h-8 w-[46%]" />
+                            <Skeleton className="h-8 w-[22%]" />
                         ) : (
                             `${
                                 tokenData?.marketCap !== null
-                                    ? `${tokenData?.marketCap.toLocaleString()}`
+                                    ? `${millify(tokenData?.marketCap)}`
                                     : "-"
                             }`
                         )}
@@ -102,11 +104,11 @@ const DashboardCards = () => {
                 <CardContent>
                     <div className="lg:text-lg xl:text-2xl font-bold">
                         {loading ? (
-                            <Skeleton className="h-8 w-[36%]" />
+                            <Skeleton className="h-8 w-[30%]" />
                         ) : (
                             `${
                                 tokenData?.dailyVolume !== null
-                                    ? `${tokenData?.dailyVolume.toLocaleString()}`
+                                    ? `${millify(tokenData?.dailyVolume)}`
                                     : "-"
                             }`
                         )}

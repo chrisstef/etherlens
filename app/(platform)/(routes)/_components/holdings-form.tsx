@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import {
     incentiveDataProviderContract,
     poolDataProviderContract,
+    GhoServiceContract,
 } from "@/services/aaveQuery";
 import {
     formatReserves,
@@ -110,6 +111,7 @@ const HoldingsForm: React.FC<{ userAddress: string }> = ({ userAddress }) => {
                 );
                 console.log("3: userSummary:", userSummary);
                 console.log("4: userSummaryExtra:", userSummaryExtra);
+                // console.log("5", GhoServiceContract);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }

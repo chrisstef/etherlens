@@ -62,7 +62,7 @@ const LineChart = ({ coinHistory }: any) => {
         scales: {
             x: {
                 grid: {
-                    display: false, // Remove X-axis gridlines
+                    display: false,
                 },
             },
         },
