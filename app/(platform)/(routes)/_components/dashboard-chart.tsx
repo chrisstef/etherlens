@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
-import Spinner from "./Spinner";
+import Spinner from "@/components/Spinner";
 
 const DashboardChart = () => {
     const [timeperiod, setTimeperiod] = useState<string>("7d");

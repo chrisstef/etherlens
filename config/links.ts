@@ -8,18 +8,18 @@ export const dashboardLinks: Navigation = {
             icon: "dashboard",
         },
         {
-            title: "Token Distribution",
-            href: "/dashboard/token-distribution",
+            title: "Markets",
+            href: "/dashboard/markets",
             icon: "mixer",
         },
         {
-            title: "Transactions",
-            href: "/dashboard/transactions",
+            title: "User Data",
+            href: "/dashboard/user-data",
             icon: "activity",
         },
         {
-            title: "Holdings",
-            href: "/dashboard/holdings",
+            title: "Facilitators",
+            href: "/dashboard/facilitators",
             icon: "holdings",
         },
         {
