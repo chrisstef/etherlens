@@ -7,6 +7,8 @@ import {
     GhoServiceContract,
 } from "@/services/aaveQuery";
 import {
+    formatGhoReserveData,
+    formatGhoUserData,
     formatReserves,
     formatReservesAndIncentives,
     formatUserSummary,
@@ -104,14 +106,33 @@ const HoldingsForm: React.FC<{ userAddress: string }> = ({ userAddress }) => {
                     userIncentives,
                 });
 
-                console.log("1: formattedReserves:", formattedReserves);
-                console.log(
-                    "2: formattedReservesExtra:",
-                    formattedReservesExtra
+                const ghoReserveData =
+                    await GhoServiceContract.getGhoReserveData();
+                const ghoUserData = await GhoServiceContract.getGhoUserData(
+                    "0x6B8434E0cB2C37282F5c7e272e7587EF1E8B0F5b"
                 );
-                console.log("3: userSummary:", userSummary);
-                console.log("4: userSummaryExtra:", userSummaryExtra);
-                // console.log("5", GhoServiceContract);
+
+                const formattedGhoReserveData = formatGhoReserveData({
+                    ghoReserveData,
+                });
+                const formattedGhoUserData = formatGhoUserData({
+                    ghoReserveData,
+                    ghoUserData,
+                    currentTimestamp,
+                });
+
+                console.log("1: formattedReserves:", formattedReserves);
+                // console.log(
+                //     "2: formattedReservesExtra:",
+                //     formattedReservesExtra
+                // );
+                // console.log("3: userSummary:", userSummary);
+                // console.log("4: userSummaryExtra:", userSummaryExtra);
+                // console.log(
+                //     "5: formattedGhoReserveData",
+                //     formattedGhoReserveData
+                // );
+                // console.log("6: formattedGhoUserData", formattedGhoUserData);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
@@ -120,7 +141,7 @@ const HoldingsForm: React.FC<{ userAddress: string }> = ({ userAddress }) => {
         fetchData();
     }, [userAddress]);
 
-    return <div>Markets & User Data</div>;
+    return <div>Markets Data</div>;
 };
 
 export default HoldingsForm;
