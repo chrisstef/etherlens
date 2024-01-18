@@ -35,7 +35,7 @@ const MarketsDataTable = () => {
     );
     const [isLoading, setIsLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const reservesPerPage = 10; // Adjust the number of reserves per page as needed
+    const reservesPerPage = 10;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -76,10 +76,6 @@ const MarketsDataTable = () => {
         const start = (page - 1) * perPage;
         const end = start + perPage;
         return array.slice(start, end);
-    };
-
-    const handleLoadMore = () => {
-        setCurrentPage(currentPage + 1);
     };
 
     const paginatedReserves = paginate(

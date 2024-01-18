@@ -25,19 +25,19 @@ export const dashboardLinks: Navigation = {
             icon: "dashboard",
         },
         {
-            title: "Markets",
+            title: "Aave Markets",
             href: "/dashboard/markets",
+            icon: "holdings",
+        },
+        {
+            title: "Facilitators",
+            href: "/dashboard/facilitators",
             icon: "mixer",
         },
         {
             title: "User Data",
             href: "/dashboard/user-data",
             icon: "activity",
-        },
-        {
-            title: "Facilitators",
-            href: "/dashboard/facilitators",
-            icon: "holdings",
         },
         {
             title: "Settings",

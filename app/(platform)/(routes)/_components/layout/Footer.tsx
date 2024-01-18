@@ -4,10 +4,10 @@ import { dashboardLinks } from "@/config/links";
 export const Footer = () => {
     return (
         <footer className="mt-auto">
-            <div className="mx-auto w-full max-w-screen-xl p-6 md:py-8">
+            <div className="mx-auto w-full max-w-screen-4xl p-6 md:py-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <Link href="/dashboard">
-                        <p className="text-lg font-extrabold">GHO Lens</p>
+                        <p className="text-lg font-bold">GHO Lens</p>
                     </Link>
                     <ul className="mb-6 flex flex-wrap items-center opacity-60 sm:mb-0">
                         {dashboardLinks.data.slice(1).map((item, index) => {
