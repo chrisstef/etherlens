@@ -7,6 +7,7 @@ import NextTopLoader from "nextjs-toploader";
 import { Navbar } from "./_components/layout/Navbar";
 import { Sidebar } from "./_components/layout/Sidebar";
 import { dashboardLinks } from "@/config/links";
+import { Footer } from "./_components/layout/Footer";
 
 export default function DashboardLayout({
     children,
@@ -40,6 +41,7 @@ export default function DashboardLayout({
                         </div>
                     </main>
                 </div>
+                <Footer />
             </div>
         </>
     );

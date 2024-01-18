@@ -9,7 +9,7 @@ export const Navbar = () => {
                 <Logo />
                 <div className="space-x-4 md:w-auto flex items-center justify-between w-full">
                     <Button size="sm" asChild>
-                        <Link href="/login">Get started</Link>
+                        <Link href="/login">Let's GHO</Link>
                     </Button>
                 </div>
             </div>

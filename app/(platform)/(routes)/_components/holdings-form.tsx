@@ -121,18 +121,18 @@ const HoldingsForm: React.FC<{ userAddress: string }> = ({ userAddress }) => {
                     currentTimestamp,
                 });
 
-                console.log("1: formattedReserves:", formattedReserves);
+                // console.log("1: formattedReserves:", formattedReserves);
                 // console.log(
                 //     "2: formattedReservesExtra:",
                 //     formattedReservesExtra
                 // );
                 // console.log("3: userSummary:", userSummary);
                 // console.log("4: userSummaryExtra:", userSummaryExtra);
-                // console.log(
-                //     "5: formattedGhoReserveData",
-                //     formattedGhoReserveData
-                // );
-                // console.log("6: formattedGhoUserData", formattedGhoUserData);
+                console.log(
+                    "5: formattedGhoReserveData",
+                    formattedGhoReserveData
+                );
+                console.log("6: formattedGhoUserData", formattedGhoUserData);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
