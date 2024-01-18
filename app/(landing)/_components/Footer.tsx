@@ -4,7 +4,7 @@ import { navLinks } from "@/config/links";
 export const Footer = () => {
     return (
         <footer className="mt-auto">
-            <div className="mx-auto w-full max-w-screen-xl p-6 md:py-8">
+            <div className="mx-auto w-full max-w-screen-4xl p-6 md:py-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <Link href="/">
                         <p className="text-lg font-extrabold">GHO Lens</p>

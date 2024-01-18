@@ -51,6 +51,10 @@ module.exports = {
                     foreground: "hsl(var(--card-foreground))",
                 },
             },
+            backgroundImage: {
+                ghoDark: "url('/Wordmark-Dark.svg')",
+                ghoLight: "url('/Wordmark-Light.svg')",
+            },
             borderRadius: {
                 lg: "var(--radius)",
                 md: "calc(var(--radius) - 2px)",
