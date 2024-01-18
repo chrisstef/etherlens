@@ -6,7 +6,7 @@ import MarketsCards from "../../_components/MarketsCards";
 import MarketsDataTable from "../../_components/MarketsDataTable";
 
 export const metadata: Metadata = {
-    title: "Markets Data | GHO Lens",
+    title: "Markets | GHO Lens",
     description: "Visualize data for each Reserve in an Aave market.",
 };
 const MarketsPage = () => {

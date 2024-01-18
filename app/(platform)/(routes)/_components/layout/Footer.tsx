@@ -1,16 +1,16 @@
 import Link from "next/link";
-import { navLinks } from "@/config/links";
+import { dashboardLinks } from "@/config/links";
 
 export const Footer = () => {
     return (
         <footer className="mt-auto">
             <div className="mx-auto w-full max-w-screen-xl p-6 md:py-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <Link href="/">
+                    <Link href="/dashboard">
                         <p className="text-lg font-extrabold">GHO Lens</p>
                     </Link>
                     <ul className="mb-6 flex flex-wrap items-center opacity-60 sm:mb-0">
-                        {navLinks.data.map((item, index) => {
+                        {dashboardLinks.data.slice(1).map((item, index) => {
                             return (
                                 item.href && (
                                     <li key={index}>

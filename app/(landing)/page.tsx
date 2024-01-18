@@ -25,17 +25,17 @@ const LandingPage = () => {
                         poppins.className
                     )}
                 >
-                    Visualize and Analyze GHO Token Transactions.{" "}
+                    Visualize data from the GHO Ecosystem effortlessly.{" "}
                 </div>
             </div>
             <div className="text-sm md:text-xl text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mx-auto">
-                Unlock real-time insights, analyze token distribution, explore
-                historical price trends, and stay informed about network
-                activities. From crypto enthusiasts to seasoned investors, GHO
-                Lens is your gateway to GH0 ecosystem.
+                Explore real-time insights, analyze reserves and incentives,
+                delve into historical data, and stay updated on network
+                activities. Whether you're a crypto enthusiast or seasoned
+                investor, GHO Lens is your go-to portal for the GH0 ecosystem.
             </div>
             <Button className="mt-6" size="lg" asChild>
-                <Link href="/login">Get started</Link>
+                <Link href="/login">Let's GHO</Link>
             </Button>
         </div>
     );

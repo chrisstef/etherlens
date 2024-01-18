@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import DashboardHeader from "../../_components/dashboard-header";
 import Shell from "../../_components/layout/Shell";
 import HoldingsForm from "../../_components/holdings-form";
+import FacilitatorsDataTable from "../../_components/FacilitatorsDataTable";
 
 export const metadata: Metadata = {
     title: "Facilitators | GHO Lens",
@@ -18,6 +19,7 @@ const FacilitatorsPage = () => {
                 text="Explore Transactions of the GHO Facilitators."
             />
             <div className="grid grid-cols-1 gap-6">
+                <FacilitatorsDataTable />
                 <HoldingsForm userAddress={userAddress} />
             </div>
         </Shell>
