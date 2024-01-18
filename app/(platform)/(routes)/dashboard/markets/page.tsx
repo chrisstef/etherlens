@@ -3,7 +3,7 @@ import Shell from "../../_components/layout/Shell";
 import DashboardHeader from "../../_components/dashboard-header";
 import { Metadata } from "next";
 import MarketsCards from "../../_components/MarketsCards";
-import DataTable from "../../_components/MarketsDataTable";
+import MarketsDataTable from "../../_components/MarketsDataTable";
 
 export const metadata: Metadata = {
     title: "Markets Data | GHO Lens",
@@ -18,7 +18,7 @@ const MarketsPage = () => {
             />
             <div className="grid grid-cols-1 gap-6">
                 <MarketsCards />
-                <DataTable />
+                <MarketsDataTable />
             </div>
         </Shell>
     );
