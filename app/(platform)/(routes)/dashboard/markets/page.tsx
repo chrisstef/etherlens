@@ -16,7 +16,7 @@ const MarketsPage = () => {
                 heading="Markets Data"
                 text="Visualize data for each Reserve in an Aave market."
             />
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-1">
                 <MarketsCards />
                 <MarketsDataTable />
             </div>

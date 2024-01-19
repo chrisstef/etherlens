@@ -32,7 +32,8 @@ const LandingPage = () => {
                 Explore real-time insights, analyze reserves and incentives,
                 delve into historical data, and stay updated on network
                 activities. Whether you're a crypto enthusiast or seasoned
-                investor, GHO Lens is your go-to portal for the GH0 ecosystem.
+                investor, GHO Lens is your GHO-to portal for an evergrowing
+                ecosystem.
             </div>
             <Button className="mt-6" size="lg" asChild>
                 <Link href="/login">Let's GHO</Link>

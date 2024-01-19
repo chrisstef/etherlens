@@ -1,13 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import millify from "millify";
-import { formatReserves } from "@aave/math-utils";
-import dayjs from "dayjs";
-import { poolDataProviderContract } from "@/services/aaveQuery";
-
-import * as markets from "@bgd-labs/aave-address-book";
 
 import {
     Table,
@@ -19,6 +14,15 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import {
+    DropdownMenu,
+    DropdownMenuCheckboxItem,
+    DropdownMenuContent,
+    DropdownMenuLabel,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Icons } from "@/components/icons";
+import useAaveData from "@/hooks/useAaveData";
 
 interface ReserveData {
     id: string;
@@ -29,48 +33,28 @@ interface ReserveData {
     underlyingAsset: string;
 }
 
+interface Column {
+    id: string;
+    label: string;
+    isVisible: boolean;
+}
+
+const initialColumns: Column[] = [
+    { id: "name", label: "Name", isVisible: true },
+    { id: "symbol", label: "Symbol", isVisible: true },
+    {
+        id: "formattedAvailableLiquidity",
+        label: "Available Liquidity",
+        isVisible: true,
+    },
+    { id: "variableBorrowAPY", label: "APY", isVisible: true },
+];
+
 const MarketsDataTable = () => {
-    const [formattedReserves, setFormattedReserves] = useState<ReserveData[]>(
-        []
-    );
-    const [isLoading, setIsLoading] = useState(true);
+    const { formattedReserves, isLoading } = useAaveData();
+    const [columns, setColumns] = useState<Column[]>(initialColumns);
     const [currentPage, setCurrentPage] = useState(1);
     const reservesPerPage = 10;
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const reserves =
-                    await poolDataProviderContract.getReservesHumanized({
-                        lendingPoolAddressProvider:
-                            markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-                    });
-
-                const reservesArray = reserves.reservesData;
-                const baseCurrencyData = reserves.baseCurrencyData;
-
-                const currentTimestamp = dayjs().unix();
-
-                const formattedReserves = formatReserves({
-                    reserves: reservesArray,
-                    currentTimestamp,
-                    marketReferenceCurrencyDecimals:
-                        baseCurrencyData.marketReferenceCurrencyDecimals,
-                    marketReferencePriceInUsd:
-                        baseCurrencyData.marketReferenceCurrencyPriceInUsd,
-                });
-
-                setFormattedReserves(formattedReserves);
-                setIsLoading(false);
-
-                console.log("1: formattedReserves:", formattedReserves);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-
-        fetchData();
-    }, []);
 
     const paginate = (array: ReserveData[], page: number, perPage: number) => {
         const start = (page - 1) * perPage;
@@ -92,10 +76,44 @@ const MarketsDataTable = () => {
         setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
     };
 
+    const handleColumnToggle = (columnId: string) => {
+        setColumns((prevColumns) =>
+            prevColumns.map((column) =>
+                column.id === columnId
+                    ? { ...column, isVisible: !column.isVisible }
+                    : column
+            )
+        );
+    };
+
+    const getVisibleColumns = () =>
+        columns.filter((column) => column.isVisible);
+
     return (
         <div className="w-full overflow-x-auto">
-            <div className="mb-4 flex items-center px-2 pt-1">
-                {/* Your dropdown menu content */}
+            <div className="mb-4 flex items-center px-1 pt-1">
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <Button variant="outline" className="ml-auto">
+                            <Icons.mixer className="mr-2 h-4 w-4" />
+                            View
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="-mx-1" align="end">
+                        <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+                        {columns.map((column) => (
+                            <DropdownMenuCheckboxItem
+                                key={column.id}
+                                checked={column.isVisible}
+                                onCheckedChange={() => {
+                                    handleColumnToggle(column.id);
+                                }}
+                            >
+                                {column.label}
+                            </DropdownMenuCheckboxItem>
+                        ))}
+                    </DropdownMenuContent>
+                </DropdownMenu>
             </div>
             <div className="rounded-md border">
                 <Table className="min-w-full">
@@ -106,49 +124,61 @@ const MarketsDataTable = () => {
                     </TableCaption>
 
                     <TableHeader>
-                        {formattedReserves.length > 0 ? (
-                            <TableRow>
-                                <TableHead>Name</TableHead>
-                                <TableHead>Symbol</TableHead>
-                                <TableHead>Available Liquidity</TableHead>
-                                <TableHead>APY</TableHead>
-                                <TableHead>Details</TableHead>
-                            </TableRow>
-                        ) : null}
+                        <TableRow>
+                            {getVisibleColumns().map((column) => (
+                                <TableHead
+                                    key={column.id}
+                                    className="w-1/4 p-5"
+                                >
+                                    {column.label}
+                                </TableHead>
+                            ))}
+                            <TableHead className="w-1/4 p-5">Actions</TableHead>
+                        </TableRow>
                     </TableHeader>
                     <TableBody>
                         {paginatedReserves?.map((reserve) => (
                             <TableRow key={reserve.id}>
-                                <TableCell>
-                                    <Link
-                                        href={`/dashboard/markets/underlyingAsset=${reserve.underlyingAsset}`}
+                                {getVisibleColumns().map((column) => (
+                                    <TableCell
+                                        key={column.id}
+                                        className="w-1/4 p-5"
                                     >
-                                        <span className="font-semibold">
-                                            {reserve.name}
-                                        </span>
-                                    </Link>
-                                </TableCell>
-                                <TableCell className="w-64">
-                                    {reserve.symbol}
-                                </TableCell>
-                                <TableCell className="w-64">
-                                    $
-                                    {millify(
-                                        Number(
-                                            reserve.formattedAvailableLiquidity
-                                        ),
-                                        { precision: 2 }
-                                    )}
-                                </TableCell>
-                                <TableCell className="w-64">
-                                    {(
-                                        Number(reserve.variableBorrowAPY) * 100
-                                    ).toFixed(2) + "%"}
-                                </TableCell>
-                                <TableCell className="w-64">
+                                        {column.id ===
+                                        "formattedAvailableLiquidity" ? (
+                                            millify(Number(reserve[column.id]))
+                                        ) : column.id ===
+                                          "variableBorrowAPY" ? (
+                                            `${(
+                                                Number(
+                                                    reserve.variableBorrowAPY
+                                                ) * 100
+                                            ).toFixed(2)}%`
+                                        ) : column.id === "name" ? (
+                                            <Link
+                                                href={`/dashboard/markets/underlyingAsset=${
+                                                    reserve.underlyingAsset
+                                                }?index=${formattedReserves.indexOf(
+                                                    reserve
+                                                )}`}
+                                            >
+                                                <span className="font-semibold">
+                                                    {reserve.name}
+                                                </span>
+                                            </Link>
+                                        ) : (
+                                            (reserve as any)[column.id]
+                                        )}
+                                    </TableCell>
+                                ))}
+                                <TableCell className="w-1/4 p-5">
                                     <Button variant="outline" asChild>
                                         <Link
-                                            href={`/dashboard/markets/underlyingAsset=${reserve.underlyingAsset}`}
+                                            href={`/dashboard/markets/underlyingAsset=${
+                                                reserve.underlyingAsset
+                                            }?index=${formattedReserves.indexOf(
+                                                reserve
+                                            )}`}
                                         >
                                             <span>Details</span>
                                         </Link>

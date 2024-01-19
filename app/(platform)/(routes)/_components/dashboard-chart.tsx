@@ -31,7 +31,7 @@ const DashboardChart = () => {
     };
 
     return (
-        <Card className="">
+        <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-xl md:text-2xl">
                     Native to the Aave Protocol.
