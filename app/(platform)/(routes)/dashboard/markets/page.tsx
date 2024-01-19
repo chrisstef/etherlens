@@ -1,7 +1,6 @@
-import React from "react";
+import { Metadata } from "next";
 import Shell from "../../_components/layout/Shell";
 import DashboardHeader from "../../_components/dashboard-header";
-import { Metadata } from "next";
 import MarketsCards from "../../_components/MarketsCards";
 import MarketsDataTable from "../../_components/MarketsDataTable";
 
