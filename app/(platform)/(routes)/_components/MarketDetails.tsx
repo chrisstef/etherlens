@@ -40,7 +40,7 @@ const MarketDetails = () => {
         <>
             <Button className="w-[150px]" variant="outline" asChild>
                 <Link href="/dashboard/markets">GHO Back</Link>
-            </Button>
+            </Button>{" "}
             {marketData ? (
                 <Card>
                     <CardHeader>

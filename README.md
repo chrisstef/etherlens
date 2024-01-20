@@ -77,12 +77,16 @@ NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=''
 # Coinranking
 NEXT_PUBLIC_CRYPTO_BASE_URL=''
 NEXT_PUBLIC_RAPIDAPI_KEY=''
+
+# Etherscan API
+NEXT_PUBLIC_ETHERSCAN_BASE_URL=''
+NEXT_PUBLIC_ETHERSCAN_KEY=''
 ```
 
 ### ⚠️ Important!
 
 In order to run the app, you need the API keys.
-For ConnectKit, grab your API key from the [Wallet Connect dashboard](https://cloud.walletconnect.com/sign-in). And for the rapid API key, get it from [Rapid API](https://rapidapi.com/auth/sign-up?referral=/hub).
+For ConnectKit, grab your API key from the [Wallet Connect dashboard](https://cloud.walletconnect.com/sign-in). For Etherscan API create your account [here](https://etherscan.io/apis) to gain access to your API key. Finally, for the rapid API key, get it from [Rapid API](https://rapidapi.com/auth/sign-up?referral=/hub). The above proccess is free of charge.
 
 ### Starting the application
 
@@ -92,7 +96,7 @@ After finishing the above steps, run the following command in the project direct
 npm run dev or yarn dev
 ```
 
-Visit `http://localhost:3000` in your browser to view the application.
+The project should be up and running! Visit `http://localhost:3000` in your browser to view the application.
 
 ## Future Tasks
 

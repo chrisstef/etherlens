@@ -1,127 +1,149 @@
 "use client";
 
-import React, { useEffect } from "react";
-import {
-    incentiveDataProviderContract,
-    poolDataProviderContract,
-    GhoServiceContract,
-} from "@/services/aaveQuery";
-import {
-    formatGhoReserveData,
-    formatGhoUserData,
-    formatReserves,
-    formatUserSummary,
-    formatUserSummaryAndIncentives,
-} from "@aave/math-utils";
+import { useEffect, useState } from "react";
+
+import { getEtherscanData } from "@/services/etherscanApi";
+import { EtherscanApiResponse } from "@/types";
+import { useAccount } from "wagmi";
+import { formatGhoUserData } from "@aave/math-utils";
+import { GhoServiceContract } from "@/services/aaveQuery";
 import dayjs from "dayjs";
 
-import * as markets from "@bgd-labs/aave-address-book";
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableFooter,
+    TableRow,
+} from "@/components/ui/table";
 
-const UserDataTable: React.FC<{ userAddress: string }> = ({ userAddress }) => {
+const UserDataTable = () => {
+    const [loading, setLoading] = useState(true);
+    const [etherscanData, setEtherscanData] =
+        useState<EtherscanApiResponse | null>(null);
+    const [formattedGhoUserData, setFormattedGhoUserData] = useState<
+        any | null
+    >(null);
+    const { address } = useAccount();
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const reserves =
-                    await poolDataProviderContract.getReservesHumanized({
-                        lendingPoolAddressProvider:
-                            markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-                    });
+                const contractAddress =
+                    "0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f";
 
-                // Fetch user-specific Aave data
-                const userReserves =
-                    await poolDataProviderContract.getUserReservesHumanized({
-                        lendingPoolAddressProvider:
-                            markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-                        user: userAddress,
-                    });
-
-                // Array of incentive tokens with price feed and emission APR
-                const reserveIncentives =
-                    await incentiveDataProviderContract.getReservesIncentivesDataHumanized(
-                        {
-                            lendingPoolAddressProvider:
-                                markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-                        }
+                if (address) {
+                    const data = await getEtherscanData(
+                        address,
+                        contractAddress
                     );
+                    setEtherscanData(data);
+                } else {
+                    console.error("Address is undefined");
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
 
-                // Fetch user incentives data
-                const userIncentives =
-                    await incentiveDataProviderContract.getUserReservesIncentivesDataHumanized(
-                        {
-                            lendingPoolAddressProvider:
-                                markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
-                            user: userAddress,
-                        }
-                    );
+        fetchData();
+    }, []);
 
-                const reservesArray = reserves.reservesData;
-                const baseCurrencyData = reserves.baseCurrencyData;
-                const userReservesArray = userReserves.userReserves;
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                if (!address) {
+                    console.log("No address found.");
+                    return;
+                }
 
                 const currentTimestamp = dayjs().unix();
-
-                const formattedReserves = formatReserves({
-                    reserves: reservesArray,
-                    currentTimestamp,
-                    marketReferenceCurrencyDecimals:
-                        baseCurrencyData.marketReferenceCurrencyDecimals,
-                    marketReferencePriceInUsd:
-                        baseCurrencyData.marketReferenceCurrencyPriceInUsd,
-                });
-
-                const userSummary = formatUserSummary({
-                    currentTimestamp,
-                    marketReferencePriceInUsd:
-                        baseCurrencyData.marketReferenceCurrencyPriceInUsd,
-                    marketReferenceCurrencyDecimals:
-                        baseCurrencyData.marketReferenceCurrencyDecimals,
-                    userReserves: userReservesArray,
-                    formattedReserves,
-                    userEmodeCategoryId: userReserves.userEmodeCategoryId,
-                });
-
-                const userSummaryExtra = formatUserSummaryAndIncentives({
-                    currentTimestamp,
-                    marketReferencePriceInUsd:
-                        baseCurrencyData.marketReferenceCurrencyPriceInUsd,
-                    marketReferenceCurrencyDecimals:
-                        baseCurrencyData.marketReferenceCurrencyDecimals,
-                    userReserves: userReservesArray,
-                    formattedReserves,
-                    userEmodeCategoryId: userReserves.userEmodeCategoryId,
-                    reserveIncentives,
-                    userIncentives,
-                });
 
                 const ghoReserveData =
                     await GhoServiceContract.getGhoReserveData();
                 const ghoUserData = await GhoServiceContract.getGhoUserData(
-                    "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c"
+                    address
                 );
 
-                const formattedGhoReserveData = formatGhoReserveData({
-                    ghoReserveData,
-                });
                 const formattedGhoUserData = formatGhoUserData({
                     ghoReserveData,
                     ghoUserData,
                     currentTimestamp,
                 });
-                console.log("3: userSummary:", userSummary);
-                console.log("4: userSummaryExtra:", userSummaryExtra);
-                console.log(
-                    "5: formattedGhoReserveData",
-                    formattedGhoReserveData
-                );
-                console.log("6: formattedGhoUserData", formattedGhoUserData);
+                setFormattedGhoUserData(formattedGhoUserData);
+                setLoading(false);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         };
 
         fetchData();
-    }, [userAddress]);
-    return <div>UserDataTable</div>;
+    }, [address]);
+
+    return (
+        <div className="rounded-md border">
+            <Table className="min-w-full">
+                <TableCaption className="pb-4">
+                    {loading
+                        ? "Querying smart contracts..."
+                        : "Your GHO summary."}
+                </TableCaption>
+                <TableBody>
+                    <TableRow>
+                        <TableCell className="font-medium p-7">
+                            Discount Token Balance:
+                        </TableCell>
+                        <TableCell className="text-right">
+                            {formattedGhoUserData?.userDiscountTokenBalance}
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell className="font-medium p-7">
+                            Discounted GHO Interest:
+                        </TableCell>
+                        <TableCell className="text-right">
+                            {formattedGhoUserData?.userDiscountedGhoInterest}
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell className="font-medium p-7">
+                            GHO Available to borrow at Discount:
+                        </TableCell>
+                        <TableCell className="text-right">
+                            {
+                                formattedGhoUserData?.userGhoAvailableToBorrowAtDiscount
+                            }
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell className="font-medium p-7">
+                            GHO Borrow balance:
+                        </TableCell>
+                        <TableCell className="text-right">
+                            {formattedGhoUserData?.userGhoBorrowBalance}
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell className="font-medium p-7">
+                            GHO Discount Percent:
+                        </TableCell>
+                        <TableCell className="text-right">
+                            {formattedGhoUserData?.userGhoDiscountPercent}
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+                <TableFooter>
+                    <TableRow>
+                        <TableCell className="p-7">Available GHO:</TableCell>
+                        <TableCell className="text-right">
+                            {etherscanData?.result}
+                        </TableCell>
+                    </TableRow>
+                </TableFooter>
+            </Table>
+        </div>
+    );
 };
 
 export default UserDataTable;

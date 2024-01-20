@@ -20,12 +20,6 @@ import { Badge } from "@/components/ui/badge";
 const FacilitatorsDataTable = () => {
     const { formattedGhoReserveData, isLoading } = useFacilitatorsData();
 
-    useEffect(() => {
-        if (!isLoading && formattedGhoReserveData) {
-            console.log("Formatted Gho Reserve Data:", formattedGhoReserveData);
-        }
-    }, [isLoading, formattedGhoReserveData]);
-
     return (
         <>
             <Card>
