@@ -16,6 +16,8 @@
 
 GHO Lens is a transformative open-source project born out of the **LFGHO Hackathon** organized by **ETHGlobal**. It serves as a comprehensive data hub, providing information on the **GHO** Stablecoin and its ecosystem. With a focus on accessibility and a seamless user interface, it aims to bring clarity and insight - just like a **lens** - into the world of DeFi.
 
+Currently, GHO Lens provides detailed data insights. Looking ahead, it aims to go beyond observation. Future plans include letting users actively participate in markets by offering collateral and borrowing.
+
 ## Tech Stack
 
 -   **Next.js 14:** Taking advantage of the latest features and improvements for a modern and optimized web application.
@@ -94,11 +96,12 @@ Visit `http://localhost:3000` in your browser to view the application.
 
 ## Future Tasks
 
--   Implement advanced features for enhanced data analysis.
--   Add Magic Link for Seamless onboarding.
+-   Participate in markets by offering collateral and borrowing.
 -   Create new potential facilitators for GHO.
+-   Implement advanced features for enhanced data analysis.
 -   Brainstorm new use cases for GHO.
--   Contribute to GHO ecosystem growth through continuous development.
+-   Add Magic Link for Seamless onboarding.
+-   Integrate news API.
 -   More TBA.
 
 ## License

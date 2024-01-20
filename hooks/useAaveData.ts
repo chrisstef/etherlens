@@ -3,16 +3,7 @@ import { formatReserves } from "@aave/math-utils";
 import dayjs from "dayjs";
 import * as markets from "@bgd-labs/aave-address-book";
 import { poolDataProviderContract } from "@/services/aaveQuery";
-
-interface ReserveData {
-    id: string;
-    name: string;
-    symbol: string;
-    totalLiquidityUSD: string;
-    formattedAvailableLiquidity: string;
-    variableBorrowAPY: string;
-    underlyingAsset: string;
-}
+import { ReserveData } from "@/types";
 
 const useAaveData = () => {
     const [formattedReserves, setFormattedReserves] = useState<ReserveData[]>(

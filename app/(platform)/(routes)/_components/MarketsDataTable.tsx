@@ -23,16 +23,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Icons } from "@/components/icons";
 import useAaveData from "@/hooks/useAaveData";
-
-interface ReserveData {
-    id: string;
-    name: string;
-    symbol: string;
-    totalLiquidityUSD: string;
-    formattedAvailableLiquidity: string;
-    variableBorrowAPY: string;
-    underlyingAsset: string;
-}
+import { ReserveData } from "@/types";
 
 interface Column {
     id: string;
@@ -49,7 +40,7 @@ const initialColumns: Column[] = [
         isVisible: true,
     },
     {
-        id: "formattedAvailableLiquidity",
+        id: "availableLiquidityUSD",
         label: "Available Liquidity",
         isVisible: true,
     },
@@ -151,7 +142,7 @@ const MarketsDataTable = () => {
                                         className="w-1/5 p-5"
                                     >
                                         {column.id ===
-                                            "formattedAvailableLiquidity" ||
+                                            "availableLiquidityUSD" ||
                                         column.id === "totalLiquidityUSD" ? (
                                             millify(Number(reserve[column.id]))
                                         ) : column.id ===
@@ -163,11 +154,13 @@ const MarketsDataTable = () => {
                                             ).toFixed(2)}%`
                                         ) : column.id === "name" ? (
                                             <Link
-                                                href={`/dashboard/markets/index=${formattedReserves.indexOf(
-                                                    reserve
-                                                )}underlyingAsset=${
+                                                href={`/dashboard/markets/underlyingAsset=${
                                                     reserve.underlyingAsset
-                                                }?symbol=${reserve.symbol}`}
+                                                }?symbol=${
+                                                    reserve.symbol
+                                                }&index=${formattedReserves.indexOf(
+                                                    reserve
+                                                )}`}
                                             >
                                                 <span className="font-semibold">
                                                     {reserve.name}
@@ -181,11 +174,13 @@ const MarketsDataTable = () => {
                                 <TableCell className="w-1/5 p-5">
                                     <Button variant="outline" asChild>
                                         <Link
-                                            href={`/dashboard/markets/index=${formattedReserves.indexOf(
-                                                reserve
-                                            )}underlyingAsset=${
+                                            href={`/dashboard/markets/underlyingAsset=${
                                                 reserve.underlyingAsset
-                                            }?symbol=${reserve.symbol}`}
+                                            }?symbol=${
+                                                reserve.symbol
+                                            }&index=${formattedReserves.indexOf(
+                                                reserve
+                                            )}`}
                                         >
                                             <span>Details</span>
                                         </Link>

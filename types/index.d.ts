@@ -34,3 +34,33 @@ export type NavItem = {
 export type Navigation = {
     data: NavItem[];
 };
+
+export type ReserveData = {
+    id: string;
+    name: string;
+    symbol: string;
+    priceInUSD: string;
+    borrowUsageRatio: string;
+    totalLiquidityUSD: string;
+    availableLiquidityUSD: string;
+    variableBorrowAPY: string;
+    underlyingAsset: string;
+    eModeLabel: string;
+    formattedReserveLiquidationThreshold: string;
+    usageAsCollateralEnabled: boolean;
+};
+
+export type MarketData = {
+    name: string;
+    symbol: string;
+    priceInUSD?: string;
+    borrowUsageRatio?: string;
+    totalLiquidityUSD?: string;
+    availableLiquidityUSD: string;
+    totalDebtUSD?: string;
+    variableBorrowAPR?: string;
+    stableBorrowAPR?: string;
+    eModeLabel?: string;
+    formattedReserveLiquidationThreshold?: string;
+    usageAsCollateralEnabled?: boolean;
+};
