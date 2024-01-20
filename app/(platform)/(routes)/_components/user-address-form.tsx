@@ -15,19 +15,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Icons } from "@/components/icons";
 import { toast } from "@/components/ui/use-toast";
-import { cn } from "@/lib/utils";
+import { cn, handleCopyAddress } from "@/lib/utils";
 
 const UserAddressForm = ({ className, ...props }: any) => {
     const { address } = useAccount();
     const { disconnect } = useDisconnect();
-
-    const handleCopyAddress = (address: any) => {
-        const currentAddress = address;
-        navigator.clipboard.writeText(currentAddress);
-        toast({
-            description: "Address copied to clipboard.",
-        });
-    };
 
     const handleDisconnect = () => {
         disconnect();

@@ -26,6 +26,7 @@ import { LuSettings } from "react-icons/lu";
 import { MdDeleteForever, MdOutlineLogout } from "react-icons/md";
 import { RxDashboard, RxMixerHorizontal } from "react-icons/rx";
 import { IoCopy } from "react-icons/io5";
+import { MdAdd } from "react-icons/md";
 
 export type IconKeys = keyof typeof icons;
 

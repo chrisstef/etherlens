@@ -21,7 +21,7 @@ const MarketDetailsPage = ({
     return (
         <Shell>
             <DashboardHeader
-                heading={`${symbol} reserve data`}
+                heading={`${symbol} market details`}
                 text={`Dive deeper into market-specific details for ${symbol}.`}
             />
             <div className="grid grid-cols-1 gap-6">
