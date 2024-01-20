@@ -35,6 +35,12 @@ export type Navigation = {
     data: NavItem[];
 };
 
+export type PageHeaderProps = {
+    heading: string;
+    text?: string | null;
+    children?: React.ReactNode;
+};
+
 export type EtherscanApiResponse = {
     status: string;
     result: string;

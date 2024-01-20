@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Shell from "../../_components/layout/Shell";
-import DashboardHeader from "../../_components/dashboard-header";
+import PageHeader from "../../_components/PageHeader";
 import MarketsCards from "../../_components/MarketsCards";
 import MarketsDataTable from "../../_components/MarketsDataTable";
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const MarketsPage = () => {
     return (
         <Shell>
-            <DashboardHeader
+            <PageHeader
                 heading="Aave Markets"
                 text="Analyze the overall statistics and market-specifics within the Aave markets."
             />

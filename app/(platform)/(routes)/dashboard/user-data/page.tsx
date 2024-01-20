@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import DashboardHeader from "../../_components/dashboard-header";
+import PageHeader from "../../_components/PageHeader";
 import Shell from "../../_components/layout/Shell";
 import UserDataTable from "../../_components/UserDataTable";
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const UserDataPage = () => {
     return (
         <Shell>
-            <DashboardHeader
+            <PageHeader
                 heading="User Data"
                 text="Get as summary of your GHO portfolio."
             />

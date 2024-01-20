@@ -1,10 +1,6 @@
-interface DashboardHeaderProps {
-    heading: string;
-    text?: string | null;
-    children?: React.ReactNode;
-}
+import { PageHeaderProps } from "@/types";
 
-const DashboardHeader = ({ heading, text, children }: DashboardHeaderProps) => {
+const PageHeader = ({ heading, text, children }: PageHeaderProps) => {
     return (
         <div className="flex flex-col items-center justify-between gap-4 px-2 text-center md:flex-row md:text-left">
             <div className="grid gap-1">
@@ -18,4 +14,4 @@ const DashboardHeader = ({ heading, text, children }: DashboardHeaderProps) => {
     );
 };
 
-export default DashboardHeader;
+export default PageHeader;

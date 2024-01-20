@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Shell from "../../../_components/layout/Shell";
-import DashboardHeader from "../../../_components/dashboard-header";
+import PageHeader from "../../../_components/PageHeader";
 import MarketDetails from "../../../_components/MarketDetails";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ const MarketDetailsPage = ({
 
     return (
         <Shell>
-            <DashboardHeader
+            <PageHeader
                 heading={`${symbol} market details`}
                 text={`Dive deeper into market-specific details for ${symbol}.`}
             />

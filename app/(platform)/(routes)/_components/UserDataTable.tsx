@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import { useAccount } from "wagmi";
+import dayjs from "dayjs";
 import { getEtherscanData } from "@/services/etherscanApi";
 import { EtherscanApiResponse } from "@/types";
-import { useAccount } from "wagmi";
 import { formatGhoUserData } from "@aave/math-utils";
 import { GhoServiceContract } from "@/services/aaveQuery";
-import dayjs from "dayjs";
 
 import {
     Table,
@@ -43,7 +42,7 @@ const UserDataTable = () => {
                     console.error("Address is undefined");
                 }
             } catch (error) {
-                console.log(error);
+                console.error(error);
             }
         };
 
@@ -54,7 +53,7 @@ const UserDataTable = () => {
         const fetchData = async () => {
             try {
                 if (!address) {
-                    console.log("No address found.");
+                    console.error("No address found.");
                     return;
                 }
 
@@ -92,7 +91,7 @@ const UserDataTable = () => {
                 <TableBody>
                     <TableRow>
                         <TableCell className="font-medium p-7">
-                            Discount Token Balance:
+                            Discount Token Balance
                         </TableCell>
                         <TableCell className="text-right">
                             {formattedGhoUserData?.userDiscountTokenBalance}
@@ -100,7 +99,7 @@ const UserDataTable = () => {
                     </TableRow>
                     <TableRow>
                         <TableCell className="font-medium p-7">
-                            Discounted GHO Interest:
+                            Discounted GHO Interest
                         </TableCell>
                         <TableCell className="text-right">
                             {formattedGhoUserData?.userDiscountedGhoInterest}
@@ -108,7 +107,7 @@ const UserDataTable = () => {
                     </TableRow>
                     <TableRow>
                         <TableCell className="font-medium p-7">
-                            GHO Available to borrow at Discount:
+                            GHO Available to borrow at Discount
                         </TableCell>
                         <TableCell className="text-right">
                             {
@@ -118,7 +117,7 @@ const UserDataTable = () => {
                     </TableRow>
                     <TableRow>
                         <TableCell className="font-medium p-7">
-                            GHO Borrow balance:
+                            GHO Borrow balance
                         </TableCell>
                         <TableCell className="text-right">
                             {formattedGhoUserData?.userGhoBorrowBalance}
@@ -126,7 +125,7 @@ const UserDataTable = () => {
                     </TableRow>
                     <TableRow>
                         <TableCell className="font-medium p-7">
-                            GHO Discount Percent:
+                            GHO Discount Percent
                         </TableCell>
                         <TableCell className="text-right">
                             {formattedGhoUserData?.userGhoDiscountPercent}
@@ -135,7 +134,7 @@ const UserDataTable = () => {
                 </TableBody>
                 <TableFooter>
                     <TableRow>
-                        <TableCell className="p-7">Available GHO:</TableCell>
+                        <TableCell className="p-7">Available GHO</TableCell>
                         <TableCell className="text-right">
                             {etherscanData?.result}
                         </TableCell>

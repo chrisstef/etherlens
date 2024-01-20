@@ -28,15 +28,12 @@ export default function DashboardLayout({
             <NextTopLoader color="#AC8DF1" height={2.5} showSpinner={false} />
             <div className="flex min-h-screen flex-col space-y-6">
                 <Navbar />
-                <div className="grid flex-1 gap-20 md:grid-cols-[200px_1fr] md:px-8 px-2">
+                <div className="grid flex-1 gap-20 md:grid-cols-[200px_1fr] md:px-8 px-2 pb-20">
                     <aside className="hidden w-[250px] flex-col md:flex">
                         <Sidebar items={dashboardLinks.data} />
                     </aside>
                     <main className="flex w-full flex-1 flex-col">
-                        <div
-                            vaul-drawer-wrapper=""
-                            className="flex min-h-screen flex-col bg-background"
-                        >
+                        <div className="flex min-h-screen flex-col bg-background pt-2">
                             {children}
                         </div>
                     </main>
