@@ -93,7 +93,7 @@ const MarketsCards = () => {
                 <CardContent>
                     <div className="lg:text-lg xl:text-2xl font-bold">
                         {loading ? (
-                            <Skeleton className="h-8 w-[24%]" />
+                            <Skeleton className="h-8 w-[65px]" />
                         ) : (
                             `${millify(summary.totalMarket ?? 0, {
                                 precision: 2,
@@ -115,7 +115,7 @@ const MarketsCards = () => {
                 <CardContent>
                     <div className="lg:text-lg xl:text-2xl font-bold">
                         {loading ? (
-                            <Skeleton className="h-8 w-[24%]" />
+                            <Skeleton className="h-8 w-[65px]" />
                         ) : (
                             `${millify(summary.totalAvailable ?? 0, {
                                 precision: 2,
@@ -137,7 +137,7 @@ const MarketsCards = () => {
                 <CardContent>
                     <div className="lg:text-lg xl:text-2xl font-bold">
                         {loading ? (
-                            <Skeleton className="h-8 w-[24%]" />
+                            <Skeleton className="h-8 w-[65px]" />
                         ) : (
                             `${millify(summary.totalBorrowed ?? 0, {
                                 precision: 2,
@@ -158,7 +158,7 @@ const MarketsCards = () => {
                 <CardContent>
                     <div className="lg:text-lg xl:text-2xl font-bold">
                         {loading ? (
-                            <Skeleton className="h-8 w-[24%]" />
+                            <Skeleton className="h-8 w-[65px]" />
                         ) : (
                             `${millify(summary.totalUtilization ?? 0, {
                                 precision: 2,

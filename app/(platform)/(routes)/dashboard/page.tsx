@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import Shell from "../_components/layout/Shell";
-import DashboardHeader from "../_components/dashboard-header";
-import DashboardCards from "../_components/dashboard-cards";
-import DashboardChart from "../_components/dashboard-chart";
+import PageHeader from "../_components/PageHeader";
+import DashboardCards from "../_components/DashboardCards";
+import DashboardChart from "../_components/DashboardChart";
 
 export const metadata: Metadata = {
     title: "Dashboard | GHO Lens",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Dashboard() {
     return (
         <Shell>
-            <DashboardHeader
+            <PageHeader
                 heading="Explore the GHO Ecosystem"
                 text="Get a snapshot of the GHO Stablecoin and Aave."
             />

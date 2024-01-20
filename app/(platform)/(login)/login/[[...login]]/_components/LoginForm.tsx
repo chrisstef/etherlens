@@ -35,12 +35,12 @@ export const LoginForm = () => {
                 href="/"
                 className={cn(
                     buttonVariants({ variant: "ghost" }),
-                    "absolute left-4 top-2 md:left-6 md:top-6 font-medium"
+                    "absolute left-2 top-2 md:left-4 md:top-4 font-medium"
                 )}
             >
                 <>
                     <Icons.back className="mr-2 h-4 w-4" />
-                    Back
+                    GHO Back
                 </>
             </Link>
             <main className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
@@ -71,7 +71,7 @@ export const LoginForm = () => {
                     </div>
                     <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
                         <p className="mx-4 mb-0 text-center font-semibold">
-                            Or
+                            OR
                         </p>
                     </div>
                     <Input type="email" placeholder="Email" disabled />

@@ -14,8 +14,8 @@ const config = createConfig(
 
         // Optional
         appDescription: "A tool to help navigate in the GHO ecosystem",
-        appUrl: "https://family.co", // your app's url
-        appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
+        appUrl: "https://gho-lens.vercel.app", // your app's url
+        appIcon: "https://gho-lens.vercel.app/logo.svg", // your app's icon, no bigger than 1024x1024px (max. 1MB)
     })
 );
 
@@ -26,7 +26,9 @@ export const ConnectkitProvider = ({
 }) => {
     return (
         <WagmiConfig config={config}>
-            <ConnectKitProvider>{children} </ConnectKitProvider>
+            <ConnectKitProvider theme="midnight">
+                {children}{" "}
+            </ConnectKitProvider>
         </WagmiConfig>
     );
 };

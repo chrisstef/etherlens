@@ -60,7 +60,7 @@ const DashboardCards = () => {
                 <CardContent>
                     <div className="lg:text-lg xl:text-2xl font-bold">
                         {loading ? (
-                            <Skeleton className="h-8 w-[25%]" />
+                            <Skeleton className="h-[32px] w-[65px]" />
                         ) : (
                             `${
                                 tokenData?.currentPrice !== null
@@ -82,7 +82,7 @@ const DashboardCards = () => {
                 <CardContent>
                     <div className="lg:text-lg xl:text-2xl font-bold">
                         {loading ? (
-                            <Skeleton className="h-8 w-[22%]" />
+                            <Skeleton className="h-[32px] w-[60px]" />
                         ) : (
                             `${
                                 tokenData?.marketCap !== null
@@ -104,7 +104,7 @@ const DashboardCards = () => {
                 <CardContent>
                     <div className="lg:text-lg xl:text-2xl font-bold">
                         {loading ? (
-                            <Skeleton className="h-8 w-[30%]" />
+                            <Skeleton className="h-[32px] w-[80px]" />
                         ) : (
                             `${
                                 tokenData?.dailyVolume !== null
@@ -126,7 +126,7 @@ const DashboardCards = () => {
                 <CardContent>
                     <div className="lg:text-lg xl:text-2xl font-bold">
                         {loading ? (
-                            <Skeleton className="h-8 w-[16%]" />
+                            <Skeleton className="h-[32px] w-[50px]" />
                         ) : (
                             `${
                                 tokenData?.volumeMarketCapRatio?.toFixed(2) !==

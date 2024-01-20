@@ -27,7 +27,7 @@ const appearanceFormSchema = z.object({
 
 type AppearanceFormValues = z.infer<typeof appearanceFormSchema>;
 
-export function AppearanceForm() {
+const AppearanceForm = () => {
     const { theme, setTheme } = useTheme();
     const form = useForm<AppearanceFormValues>({
         resolver: zodResolver(appearanceFormSchema),
@@ -142,4 +142,6 @@ export function AppearanceForm() {
             </CardContent>
         </Card>
     );
-}
+};
+
+export default AppearanceForm;

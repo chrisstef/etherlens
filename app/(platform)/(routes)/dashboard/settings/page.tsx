@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import DashboardHeader from "../../_components/dashboard-header";
-import { AppearanceForm } from "../../_components/appearance-form";
-import UserAddressForm from "../../_components/user-address-form";
+import PageHeader from "../../_components/PageHeader";
+import UserAddressForm from "../../_components/UserAddressForm";
 import Shell from "../../_components/layout/Shell";
+import AppearanceForm from "../../_components/AppearanceForm";
 
 export const metadata: Metadata = {
     title: "Settings | GHO Lens",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const SettingsPage = () => {
     return (
         <Shell>
-            <DashboardHeader
+            <PageHeader
                 heading="Settings"
                 text="Manage account and preferences."
             />
