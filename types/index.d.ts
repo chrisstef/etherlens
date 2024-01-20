@@ -35,6 +35,11 @@ export type Navigation = {
     data: NavItem[];
 };
 
+export type EtherscanApiResponse = {
+    status: string;
+    result: string;
+};
+
 export type ReserveData = {
     id: string;
     name: string;
