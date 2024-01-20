@@ -77,9 +77,9 @@ NEXT_PUBLIC_CRYPTO_BASE_URL=''
 NEXT_PUBLIC_RAPIDAPI_KEY=''
 ```
 
-## ⚠️ Important!
+### ⚠️ Important!
 
-In order to use this for your own purpose, you need the API keys.
+In order to run the app, you need the API keys.
 For ConnectKit, grab your API key from the [Wallet Connect dashboard](https://cloud.walletconnect.com/sign-in). And for the rapid API key, get it from [Rapid API](https://rapidapi.com/auth/sign-up?referral=/hub).
 
 ### Starting the application

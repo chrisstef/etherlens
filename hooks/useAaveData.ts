@@ -8,6 +8,7 @@ interface ReserveData {
     id: string;
     name: string;
     symbol: string;
+    totalLiquidityUSD: string;
     formattedAvailableLiquidity: string;
     variableBorrowAPY: string;
     underlyingAsset: string;

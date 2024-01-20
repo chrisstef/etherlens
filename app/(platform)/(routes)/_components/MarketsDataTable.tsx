@@ -28,6 +28,7 @@ interface ReserveData {
     id: string;
     name: string;
     symbol: string;
+    totalLiquidityUSD: string;
     formattedAvailableLiquidity: string;
     variableBorrowAPY: string;
     underlyingAsset: string;
@@ -42,6 +43,11 @@ interface Column {
 const initialColumns: Column[] = [
     { id: "name", label: "Name", isVisible: true },
     { id: "symbol", label: "Symbol", isVisible: true },
+    {
+        id: "totalLiquidityUSD",
+        label: "Reserve Size",
+        isVisible: true,
+    },
     {
         id: "formattedAvailableLiquidity",
         label: "Available Liquidity",
@@ -128,12 +134,12 @@ const MarketsDataTable = () => {
                             {getVisibleColumns().map((column) => (
                                 <TableHead
                                     key={column.id}
-                                    className="w-1/4 p-5"
+                                    className="w-1/5 p-5"
                                 >
                                     {column.label}
                                 </TableHead>
                             ))}
-                            <TableHead className="w-1/4 p-5">Actions</TableHead>
+                            <TableHead className="w-1/5 p-5">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -142,10 +148,11 @@ const MarketsDataTable = () => {
                                 {getVisibleColumns().map((column) => (
                                     <TableCell
                                         key={column.id}
-                                        className="w-1/4 p-5"
+                                        className="w-1/5 p-5"
                                     >
                                         {column.id ===
-                                        "formattedAvailableLiquidity" ? (
+                                            "formattedAvailableLiquidity" ||
+                                        column.id === "totalLiquidityUSD" ? (
                                             millify(Number(reserve[column.id]))
                                         ) : column.id ===
                                           "variableBorrowAPY" ? (
@@ -156,11 +163,11 @@ const MarketsDataTable = () => {
                                             ).toFixed(2)}%`
                                         ) : column.id === "name" ? (
                                             <Link
-                                                href={`/dashboard/markets/underlyingAsset=${
-                                                    reserve.underlyingAsset
-                                                }?index=${formattedReserves.indexOf(
+                                                href={`/dashboard/markets/index=${formattedReserves.indexOf(
                                                     reserve
-                                                )}`}
+                                                )}underlyingAsset=${
+                                                    reserve.underlyingAsset
+                                                }?symbol=${reserve.symbol}`}
                                             >
                                                 <span className="font-semibold">
                                                     {reserve.name}
@@ -171,14 +178,14 @@ const MarketsDataTable = () => {
                                         )}
                                     </TableCell>
                                 ))}
-                                <TableCell className="w-1/4 p-5">
+                                <TableCell className="w-1/5 p-5">
                                     <Button variant="outline" asChild>
                                         <Link
-                                            href={`/dashboard/markets/underlyingAsset=${
-                                                reserve.underlyingAsset
-                                            }?index=${formattedReserves.indexOf(
+                                            href={`/dashboard/markets/index=${formattedReserves.indexOf(
                                                 reserve
-                                            )}`}
+                                            )}underlyingAsset=${
+                                                reserve.underlyingAsset
+                                            }?symbol=${reserve.symbol}`}
                                         >
                                             <span>Details</span>
                                         </Link>

@@ -20,6 +20,7 @@ import {
     BsFire,
 } from "react-icons/bs";
 import { FaRegStar, FaSort, FaUserAlt } from "react-icons/fa";
+import { TbBucket } from "react-icons/tb";
 import { ImSpinner8, ImStatsBars } from "react-icons/im";
 import { LuSettings } from "react-icons/lu";
 import { MdDeleteForever, MdOutlineLogout } from "react-icons/md";
@@ -41,6 +42,7 @@ const icons = {
     dashboard: RxDashboard,
     settings: LuSettings,
     holdings: AiOutlineDashboard,
+    facilitators: TbBucket,
 
     // Navigation
     back: BsChevronLeft,

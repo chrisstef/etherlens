@@ -10,7 +10,6 @@ import {
     formatGhoReserveData,
     formatGhoUserData,
     formatReserves,
-    formatReservesAndIncentives,
     formatUserSummary,
     formatUserSummaryAndIncentives,
 } from "@aave/math-utils";
@@ -22,8 +21,6 @@ const HoldingsForm: React.FC<{ userAddress: string }> = ({ userAddress }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Object containing array of pool reserves and market base currency data
-                // { reservesArray, baseCurrencyData }
                 const reserves =
                     await poolDataProviderContract.getReservesHumanized({
                         lendingPoolAddressProvider:
@@ -72,16 +69,6 @@ const HoldingsForm: React.FC<{ userAddress: string }> = ({ userAddress }) => {
                         baseCurrencyData.marketReferenceCurrencyPriceInUsd,
                 });
 
-                const formattedReservesExtra = formatReservesAndIncentives({
-                    reserves: reservesArray,
-                    currentTimestamp,
-                    marketReferenceCurrencyDecimals:
-                        baseCurrencyData.marketReferenceCurrencyDecimals,
-                    marketReferencePriceInUsd:
-                        baseCurrencyData.marketReferenceCurrencyPriceInUsd,
-                    reserveIncentives,
-                });
-
                 const userSummary = formatUserSummary({
                     currentTimestamp,
                     marketReferencePriceInUsd:
@@ -109,7 +96,7 @@ const HoldingsForm: React.FC<{ userAddress: string }> = ({ userAddress }) => {
                 const ghoReserveData =
                     await GhoServiceContract.getGhoReserveData();
                 const ghoUserData = await GhoServiceContract.getGhoUserData(
-                    "0x6B8434E0cB2C37282F5c7e272e7587EF1E8B0F5b"
+                    "0x08dC8ffC2Db71EA07537D1328B3be0799b604396"
                 );
 
                 const formattedGhoReserveData = formatGhoReserveData({
@@ -120,14 +107,8 @@ const HoldingsForm: React.FC<{ userAddress: string }> = ({ userAddress }) => {
                     ghoUserData,
                     currentTimestamp,
                 });
-
-                // console.log("1: formattedReserves:", formattedReserves);
-                // console.log(
-                //     "2: formattedReservesExtra:",
-                //     formattedReservesExtra
-                // );
-                // console.log("3: userSummary:", userSummary);
-                // console.log("4: userSummaryExtra:", userSummaryExtra);
+                console.log("3: userSummary:", userSummary);
+                console.log("4: userSummaryExtra:", userSummaryExtra);
                 console.log(
                     "5: formattedGhoReserveData",
                     formattedGhoReserveData
