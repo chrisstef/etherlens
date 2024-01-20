@@ -5,7 +5,8 @@ import FacilitatorsDataTable from "../../_components/FacilitatorsDataTable";
 
 export const metadata: Metadata = {
     title: "Facilitators | GHO Lens",
-    description: "Explore key metrics of the GHO Facilitators.",
+    description:
+        "A Facilitator can trustlessly mint and burn GHO tokens up to a specified threshold.",
 };
 
 const FacilitatorsPage = () => {
@@ -13,7 +14,7 @@ const FacilitatorsPage = () => {
         <Shell>
             <DashboardHeader
                 heading="Facilitators"
-                text="Explore key metrics of the GHO Facilitators."
+                text="A Facilitator can trustlessly mint and burn GHO tokens up to a specified threshold."
             />
             <div className="grid grid-cols-1 gap-6">
                 <FacilitatorsDataTable />

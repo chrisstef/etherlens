@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const UserDataPage = () => {
-    const userAddress = "0x719bD84af4F2a08F3aa83037a3728cadE5A43c3F";
+    const userAddress = "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c";
 
     return (
         <Shell>
@@ -19,8 +19,8 @@ const UserDataPage = () => {
                 text="Get as summary of your Aave portfolio."
             />
             <div className="grid grid-cols-1 gap-6">
-                <UserDataTable />
-                <HoldingsForm userAddress={userAddress} />
+                <UserDataTable userAddress={userAddress} />
+                {/* <HoldingsForm userAddress={userAddress} /> */}
             </div>
         </Shell>
     );

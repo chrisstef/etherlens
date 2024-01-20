@@ -2,7 +2,7 @@
 type MarketData = {
     name: string;
     symbol: string;
-    totalLiquidityUSD?: string;
+    totalLiquidityUSD: string;
     totalDebtUSD?: string;
     variableBorrowAPR?: string;
     stableBorrowAPR?: string;
@@ -27,6 +27,8 @@ const MarketDetails = () => {
             setMarketData(formattedReserves[Number(index)]);
         }
     }, [isLoading]);
+
+    console.log(marketData);
 
     return (
         <div className="container mx-auto p-4">

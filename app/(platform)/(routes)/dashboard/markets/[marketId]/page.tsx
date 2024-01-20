@@ -5,15 +5,24 @@ import MarketDetails from "../../../_components/MarketDetails";
 
 export const metadata: Metadata = {
     title: "Market Details | GHO Lens",
-    description: "Visualize data for a specific Reserve in an Aave market.",
+    description: "Dive deeper into market-specific details.",
 };
 
-const MarketDetailsPage = () => {
+const MarketDetailsPage = ({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined };
+}) => {
+    const symbol =
+        typeof searchParams.symbol === "string"
+            ? searchParams.symbol.split("?")[0]
+            : undefined;
+
     return (
         <Shell>
             <DashboardHeader
-                heading="Markets Data"
-                text="Visualize data for a specific Reserve in an Aave market."
+                heading={`${symbol} reserve data`}
+                text={`Dive deeper into market-specific details for ${symbol}.`}
             />
             <div className="grid grid-cols-1 gap-6">
                 {" "}

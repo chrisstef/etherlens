@@ -32,7 +32,7 @@ export const dashboardLinks: Navigation = {
         {
             title: "Facilitators",
             href: "/dashboard/facilitators",
-            icon: "mixer",
+            icon: "facilitators",
         },
         {
             title: "User Data",
