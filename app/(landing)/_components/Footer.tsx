@@ -25,8 +25,8 @@ export const Footer = () => {
                     })}
                 </ul>
             </div>
-            <hr className="my-3 text-muted-foreground sm:mx-auto" />
-            <div className="flex my-4 items-center justify-center text-sm text-muted-foreground sm:text-center">
+            <hr className="my-2 text-muted-foreground sm:mx-auto" />
+            <div className="flex py-4 items-center justify-center text-sm text-muted-foreground sm:text-center">
                 © {new Date().getFullYear()}&nbsp;
                 <a
                     target="_blank"

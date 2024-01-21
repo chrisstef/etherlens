@@ -8,6 +8,11 @@ html,
     height: 100%;
 }
 
+html {
+    --scroll-behavior: smooth !important;
+    scroll-behavior: smooth !important;
+}
+
 @layer base {
     :root {
         --background: 0 0% 100%;
@@ -78,5 +83,9 @@ html,
     }
     body {
         @apply bg-background text-foreground;
+    }
+
+    html {
+        @apply scroll-smooth;
     }
 }
