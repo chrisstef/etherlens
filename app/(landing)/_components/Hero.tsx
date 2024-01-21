@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import FacilitatorsLight from "@/public/facilitators-light.png";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import { ImageFrame } from "./ImageFrame";
@@ -9,7 +9,7 @@ const Hero = () => {
     return (
         <>
             <section
-                className="space-y-8 py-12 pt-4 md:space-y-16 lg:py-20 min-h-screen"
+                className="space-y-8  md:space-y-16 pb-12 lg:pb-28"
                 id="home"
             >
                 <div className="container flex max-w-[64rem] flex-col items-center gap-8 text-center">
@@ -44,15 +44,14 @@ const Hero = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="mx-auto max-w-6xl px-6 lg:px-8">
+                <div className="mx-auto max-w-4xl px-10 lg:px-12">
                     <ImageFrame>
-                        <Image
-                            className="rounded-lg"
-                            src="/logo.svg"
-                            width={1364}
-                            height={866}
-                            quality={100}
-                            alt="Header image"
+                        <img
+                            className="max-w-full mx-auto h-auto rounded-md"
+                            src={FacilitatorsLight.src}
+                            width={760}
+                            height={460}
+                            alt="Facilitators Screenshot Light"
                         />
                     </ImageFrame>
                 </div>
