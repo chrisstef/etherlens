@@ -34,7 +34,7 @@ const Hero = () => {
                             target="_blank"
                             className={cn(
                                 buttonVariants({
-                                    variant: "secondary",
+                                    variant: "outline",
                                     size: "lg",
                                 })
                             )}
