@@ -1,9 +1,12 @@
-import Image from "next/image";
-import FeatImage01 from "@/public/GHO.svg";
-import FeatImage02 from "@/public/GHO.svg";
-import FeatImage03 from "@/public/GHO.svg";
 import HeadingText from "./HeadingText";
 import { CardTitle } from "@/components/ui/card";
+import DashboardDark from "@/public/dashboard-dark.png";
+import DashboardLight from "@/public/dashboard-light.png";
+import MarketsDark from "@/public/markets-dark.png";
+import MarketsLight from "@/public/markets-light.png";
+import FacilitatorsDark from "@/public/facilitators-dark.png";
+import FacilitatorsLight from "@/public/facilitators-light.png";
+import { ImageFrame } from "./ImageFrame";
 
 const Zigzag = () => {
     return (
@@ -23,13 +26,15 @@ const Zigzag = () => {
                     <div className="md:grid md:grid-cols-12 md:gap-6 items-center">
                         {/* Image */}
                         <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1">
-                            <Image
-                                className="max-w-full mx-auto md:max-w-none h-auto"
-                                src={FeatImage01}
-                                width={440}
-                                height={305}
-                                alt="Dashboard Screenshot"
-                            />
+                            <ImageFrame>
+                                <img
+                                    className="max-w-full mx-auto h-auto rounded-md"
+                                    src={DashboardLight.src}
+                                    width={640}
+                                    height={360}
+                                    alt="Dashboard Screenshot Light"
+                                />
+                            </ImageFrame>
                         </div>
                         {/* Content */}
                         <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6">
@@ -89,18 +94,20 @@ const Zigzag = () => {
                     {/* 2nd item - Markets */}
                     <div className="md:grid md:grid-cols-12 md:gap-6 items-center">
                         {/* Image */}
-                        <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 rtl">
-                            <Image
-                                className="max-w-full mx-auto md:max-w-none h-auto"
-                                src={FeatImage02}
-                                width={440}
-                                height={305}
-                                alt="Markets Screenshot"
-                            />
+                        <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0">
+                            <ImageFrame>
+                                <img
+                                    className="max-w-full mx-auto h-auto rounded-md"
+                                    src={MarketsLight.src}
+                                    width={640}
+                                    height={360}
+                                    alt="Markets Screenshot Light"
+                                />
+                            </ImageFrame>
                         </div>
                         {/* Content */}
                         <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6">
-                            <div className="md:pl-4 lg:pl-12 xl:pl-16 text-left pb-20">
+                            <div className="md:pl-4 lg:pl-12 xl:pl-16 text-left md:pb-0 pb-20">
                                 <CardTitle className="mb-2">
                                     In-Depth Market Analysis
                                 </CardTitle>
@@ -122,7 +129,7 @@ const Zigzag = () => {
                                         </svg>
                                         <span>
                                             Access tools for optimized DeFi
-                                            strategies.
+                                            strategies
                                         </span>
                                     </li>
                                     <li className="flex items-center mb-2">
@@ -158,17 +165,19 @@ const Zigzag = () => {
                     <div className="md:grid md:grid-cols-12 md:gap-6 items-center">
                         {/* Image */}
                         <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1">
-                            <Image
-                                className="max-w-full mx-auto md:max-w-none h-auto"
-                                src={FeatImage03}
-                                width={440}
-                                height={305}
-                                alt="Facilitators Screenshot"
-                            />
+                            <ImageFrame>
+                                <img
+                                    className="max-w-full mx-auto h-auto rounded-md"
+                                    src={FacilitatorsLight.src}
+                                    width={640}
+                                    height={360}
+                                    alt="Facilitators Screenshot Light"
+                                />
+                            </ImageFrame>
                         </div>
                         {/* Content */}
                         <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6">
-                            <div className="md:pr-4 lg:pr-12 xl:pr-16 text-left pb-20">
+                            <div className="md:pr-4 lg:pr-12 xl:pr-16 text-left md:pb-0 pb-20">
                                 <CardTitle className="mb-2">
                                     Explore Facilitators
                                 </CardTitle>
