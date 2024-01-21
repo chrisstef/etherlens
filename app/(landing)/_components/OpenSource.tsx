@@ -27,7 +27,9 @@ const OpenSource = async () => {
                 <Link
                     href="https://github.com/chrisstef/gho-lens"
                     target="_blank"
-                    className={cn(buttonVariants({ variant: "outline" }))}
+                    className={cn(
+                        buttonVariants({ variant: "outline", size: "lg" })
+                    )}
                 >
                     <Icons.star className="mr-2 h-4 w-4" />
                     <span>{stars} on Github</span>

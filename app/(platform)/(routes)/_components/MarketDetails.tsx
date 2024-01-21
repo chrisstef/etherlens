@@ -123,7 +123,7 @@ const MarketDetails = () => {
                                     <CardTitle className="text-sm font-medium">
                                         Available Liquidity
                                     </CardTitle>
-                                    <Icons.fire className="h-4 w-4 text-muted-foreground" />
+                                    <Icons.dollar className="h-4 w-4 text-muted-foreground" />
                                 </CardHeader>
                                 <CardContent>
                                     <div className="lg:text-lg xl:text-2xl font-bold">
@@ -167,7 +167,7 @@ const MarketDetails = () => {
                                     <CardTitle className="text-sm font-medium">
                                         Unused Liquidity
                                     </CardTitle>
-                                    <Icons.fire className="h-4 w-4 text-muted-foreground" />
+                                    <Icons.dollar className="h-4 w-4 text-muted-foreground" />
                                 </CardHeader>
                                 <CardContent>
                                     <div className="lg:text-lg xl:text-2xl font-bold">
