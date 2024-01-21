@@ -4,19 +4,18 @@ import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import { ImageFrame } from "./ImageFrame";
-import { Badge } from "@/components/ui/badge";
 
 const Hero = () => {
     return (
         <>
-            <section className="space-y-8 pb-12 pt-4 md:space-y-16 lg:pb-32">
+            <section
+                className="space-y-8 py-12 pt-4 md:space-y-16 lg:py-20 min-h-screen"
+                id="home"
+            >
                 <div className="container flex max-w-[64rem] flex-col items-center gap-8 text-center">
-                    <Badge
-                        variant="outline"
-                        className="px-4 py-2 text-md border-violet-500"
-                    >
+                    <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
                         Open source
-                    </Badge>{" "}
+                    </div>
                     <h1 className="text-4xl font-semibold sm:text-5xl md:text-6xl lg:text-7xl">
                         Explore GHO Token
                     </h1>

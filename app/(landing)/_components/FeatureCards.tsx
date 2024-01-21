@@ -8,7 +8,7 @@ import HeadingText from "./HeadingText";
 const FeatureCards = () => {
     return (
         <section className="bg-secondary" id="features">
-            <div className="container space-y-8 py-12 text-center lg:py-20">
+            <div className="container space-y-8 py-12 text-center lg:py-28">
                 <HeadingText subtext="What does GHO Lens offer?">
                     Features
                 </HeadingText>
@@ -16,9 +16,9 @@ const FeatureCards = () => {
                     <Card className="flex flex-grow flex-col justify-between gap-4 p-8 text-left dark:bg-secondary">
                         <TbDeviceAnalytics className="text-3xl" />
 
-                        <CardTitle>Real-Time Insights</CardTitle>
+                        <CardTitle>Advanced Insights</CardTitle>
                         <CardDescription>
-                            Stay informed with real-time market insights.
+                            Stay informed with real-time Market insights.
                             Witness the nature of DeFi markets at a glance,
                             empowering you to make timely decisions.
                         </CardDescription>
