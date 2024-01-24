@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/table";
 
 const UserDataTable = () => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState<boolean>(true);
     const [etherscanData, setEtherscanData] =
         useState<EtherscanApiResponse | null>(null);
     const [formattedGhoUserData, setFormattedGhoUserData] = useState<
@@ -117,7 +117,7 @@ const UserDataTable = () => {
                     </TableRow>
                     <TableRow>
                         <TableCell className="font-medium p-7">
-                            GHO Borrow balance
+                            GHO Borrow Balance
                         </TableCell>
                         <TableCell className="text-right">
                             {formattedGhoUserData?.userGhoBorrowBalance}

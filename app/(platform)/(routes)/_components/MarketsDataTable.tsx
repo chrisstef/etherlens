@@ -50,7 +50,7 @@ const initialColumns: Column[] = [
 const MarketsDataTable = () => {
     const { formattedReserves, isLoading } = useAaveData();
     const [columns, setColumns] = useState<Column[]>(initialColumns);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState<number>(1);
     const reservesPerPage = 10;
 
     const paginate = (array: ReserveData[], page: number, perPage: number) => {
