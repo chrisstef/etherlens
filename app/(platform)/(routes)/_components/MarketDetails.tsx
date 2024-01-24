@@ -36,6 +36,12 @@ const MarketDetails = () => {
 
     return (
         <>
+            <Button className="w-32" variant="outline" asChild>
+                <Link href="/dashboard/markets">
+                    <Icons.back className="mr-2 h-4 w-4" />
+                    GHO Back
+                </Link>
+            </Button>
             {marketData ? (
                 <Card>
                     <CardHeader>
@@ -216,12 +222,6 @@ const MarketDetails = () => {
                     <Spinner />
                 </div>
             )}
-            <Button className="w-32" variant="outline" asChild>
-                <Link href="/dashboard/markets">
-                    <Icons.back className="mr-2 h-4 w-4" />
-                    GHO Back
-                </Link>
-            </Button>
         </>
     );
 };

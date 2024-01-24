@@ -9,7 +9,7 @@ const Hero = () => {
     return (
         <>
             <section
-                className="space-y-8  md:space-y-16 pb-12 lg:pb-28"
+                className="space-y-8 md:space-y-16 pb-12 lg:pb-28 min-h-screen"
                 id="home"
             >
                 <div className="container flex max-w-[64rem] flex-col items-center gap-8 text-center">

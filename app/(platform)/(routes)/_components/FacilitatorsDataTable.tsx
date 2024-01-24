@@ -42,7 +42,7 @@ const FacilitatorsDataTable = () => {
                                     &nbsp;<b>GHO</b>
                                 </Label>
                             ) : (
-                                <Skeleton className="h-4 w-36" />
+                                <Skeleton className="h-3 w-36" />
                             )}
                             {formattedGhoReserveData && !isLoading ? (
                                 <Label>
@@ -53,7 +53,7 @@ const FacilitatorsDataTable = () => {
                                     &nbsp;<b>GHO</b>
                                 </Label>
                             ) : (
-                                <Skeleton className="h-4 w-44" />
+                                <Skeleton className="h-3 w-44" />
                             )}
                         </div>
 
@@ -75,7 +75,7 @@ const FacilitatorsDataTable = () => {
                             <CardContent>
                                 <div className="lg:text-lg xl:text-2xl font-bold">
                                     {isLoading ? (
-                                        <Skeleton className="h-8 w-[24%]" />
+                                        <Skeleton className="h-8 w-16" />
                                     ) : (
                                         (
                                             formattedGhoReserveData?.aaveFacilitatorMintedPercent *
@@ -98,7 +98,7 @@ const FacilitatorsDataTable = () => {
                             <CardContent>
                                 <div className="lg:text-lg xl:text-2xl font-bold">
                                     {isLoading ? (
-                                        <Skeleton className="h-8 w-[24%]" />
+                                        <Skeleton className="h-8 w-20" />
                                     ) : (
                                         `${millify(
                                             formattedGhoReserveData?.aaveFacilitatorRemainingCapacity ??
@@ -126,7 +126,7 @@ const FacilitatorsDataTable = () => {
                             <CardContent>
                                 <div className="lg:text-lg xl:text-2xl font-bold">
                                     {isLoading ? (
-                                        <Skeleton className="h-8 w-[24%]" />
+                                        <Skeleton className="h-8 w-16" />
                                     ) : (
                                         formattedGhoReserveData?.ghoMinDiscountTokenBalanceForDiscount
                                     )}
@@ -146,7 +146,7 @@ const FacilitatorsDataTable = () => {
                             <CardContent>
                                 <div className="lg:text-lg xl:text-2xl font-bold">
                                     {isLoading ? (
-                                        <Skeleton className="h-8 w-[24%]" />
+                                        <Skeleton className="h-8 w-12" />
                                     ) : (
                                         formattedGhoReserveData?.ghoDiscountedPerToken
                                     )}
@@ -166,7 +166,7 @@ const FacilitatorsDataTable = () => {
                             <CardContent>
                                 <div className="lg:text-lg xl:text-2xl font-bold">
                                     {isLoading ? (
-                                        <Skeleton className="h-8 w-[24%]" />
+                                        <Skeleton className="h-8 w-12" />
                                     ) : (
                                         formattedGhoReserveData?.ghoDiscountRate *
                                         100
@@ -188,7 +188,7 @@ const FacilitatorsDataTable = () => {
                             <CardContent>
                                 <div className="lg:text-lg xl:text-2xl font-bold">
                                     {isLoading ? (
-                                        <Skeleton className="h-8 w-[24%]" />
+                                        <Skeleton className="h-8 w-32" />
                                     ) : (
                                         <>
                                             {`${(
