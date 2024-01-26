@@ -34,7 +34,7 @@ export const LoginForm = () => {
             <Link
                 href="/"
                 className={cn(
-                    buttonVariants({ variant: "ghost", size: "sm" }),
+                    buttonVariants({ variant: "link", size: "sm" }),
                     "absolute left-4 top-4 md:left-6 md:top-6"
                 )}
             >
@@ -60,7 +60,7 @@ export const LoginForm = () => {
                             Login
                         </h1>
                         <p className="text-sm text-muted-foreground">
-                            Enter your email to receive your Magic Link
+                            Enter your email to receive your Magic Link.
                         </p>
                         <Input type="email" placeholder="Email" disabled />
                     </div>
