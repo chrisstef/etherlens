@@ -8,7 +8,7 @@ import HeadingText from "./HeadingText";
 const FeatureCards = () => {
     return (
         <section className="bg-secondary" id="features">
-            <div className="container space-y-8 py-12 text-center lg:py-28">
+            <div className="container space-y-8 py-12 text-center lg:py-20">
                 <HeadingText subtext="What does GHO Lens offer?">
                     Features
                 </HeadingText>
