@@ -34,7 +34,7 @@ export const LoginForm = () => {
             <Link
                 href="/"
                 className={cn(
-                    buttonVariants({ variant: "link", size: "sm" }),
+                    buttonVariants({ variant: "ghost", size: "sm" }),
                     "absolute left-4 top-4 md:left-6 md:top-6"
                 )}
             >
@@ -77,9 +77,7 @@ export const LoginForm = () => {
                     </div>
 
                     <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-                        <span className="bg-background px-2 text-muted-foreground">
-                            Or
-                        </span>
+                        <span className="px-2 text-muted-foreground">Or</span>
                     </div>
                     <div className="text-center">
                         <Button
