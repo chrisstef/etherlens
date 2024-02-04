@@ -32,7 +32,7 @@ export default function RootLayout({
                 <ConnectkitProvider>
                     <ThemeProvider
                         attribute="class"
-                        defaultTheme="light"
+                        defaultTheme="dark"
                         enableSystem
                     >
                         {children}

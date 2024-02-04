@@ -25,7 +25,7 @@ const FeatureCards = () => {
                     </Card>
                     <Card className="flex flex-grow flex-col justify-between gap-4 p-8 text-left dark:bg-secondary">
                         <BsFire className="text-3xl" />
-                        <CardTitle>Facilitator Intelligence</CardTitle>
+                        <CardTitle> Unveiling Facilitators</CardTitle>
                         <CardDescription>
                             Explore the innovative Facilitators feature,
                             providing in-depth insights into the entities
