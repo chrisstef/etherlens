@@ -13,7 +13,7 @@ const Hero = () => {
                 id="home"
             >
                 <div className="container flex max-w-[64rem] flex-col items-center gap-8 text-center">
-                    <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
+                    <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-800 bg-green-200 rounded-full mb-4">
                         Open source
                     </div>
                     <h1 className="text-4xl font-semibold sm:text-5xl md:text-6xl lg:text-7xl">

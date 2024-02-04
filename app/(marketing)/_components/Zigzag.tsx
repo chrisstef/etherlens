@@ -10,7 +10,7 @@ const Zigzag = () => {
         <section id="overview">
             <div className="container max-w-screen-4xl space-y-8 py-12 text-center lg:py-20">
                 {/* Section header */}
-                <div className="inline-flex text-sm font-semibold py-1 px-3 text-green-600 bg-green-200 rounded-full mb-4">
+                <div className="inline-flex text-sm font-semibold py-1 px-3 text-green-800 bg-green-200 rounded-full mb-4">
                     Technical Prowess
                 </div>
                 <HeadingText subtext="Unlocking DeFi with GHO Lens.">
