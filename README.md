@@ -26,7 +26,7 @@ Currently, GHO Lens provides detailed data insights. Looking ahead, it aims to g
 
 -   **TypeScript:** Enhancing code quality and maintainability by providing static typing.
 
--   **Ethers:** Interacting with Ethereum smart contracts.
+-   **Ethers.js:** Interacting with Ethereum smart contracts.
 
 ## Getting Started
 
