@@ -53,7 +53,11 @@ cd gho-lens
 3. Install dependencies:
 
 ```bash
-npm install or yarn
+npm install
+```
+or
+```bash
+yarn
 ```
 
 ### Configuration
@@ -93,7 +97,11 @@ For ConnectKit, grab your API key from the [Wallet Connect dashboard](https://cl
 After finishing the above steps, run the following command in the project directory:
 
 ```bash
-npm run dev or yarn dev
+npm run dev
+```
+or
+```bash
+yarn dev
 ```
 
 The project should be up and running! Visit `http://localhost:3000` in your browser to view the application.
