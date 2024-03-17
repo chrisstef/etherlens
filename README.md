@@ -14,7 +14,7 @@
 
 ## Overview
 
-GHO Lens is an open-source project born out of the **LFGHO Hackathon** organized by **ETHGlobal**. It serves as a comprehensive data hub, providing information on the **GHO** Stablecoin and its ecosystem. With a focus on accessibility and a seamless user interface, it aims to bring clarity and insight - just like a **lens** - into the world of DeFi.
+GHO Lens is an open-source project born out of the **LFGHO Hackathon** organized by **ETHGlobal**. It serves as a comprehensive data hub, providing information on the **GHO** stablecoin and its ecosystem. With a focus on accessibility and a seamless user interface, it aims to bring clarity and insight - just like a **lens** - into the world of DeFi.
 
 Currently, GHO Lens provides detailed data insights. Looking ahead, it aims to go beyond observation. Future plans include letting users actively participate in markets by offering collateral and borrowing.
 
