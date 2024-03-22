@@ -62,7 +62,7 @@ yarn
 
 ### Configuration
 
-Before running the application, it's important to configure your environment variables. Follow these steps:
+Before running the app, it's important to configure your environment variables. Follow these steps:
 
 1. Create a `.env` file in the root of the project.
 
@@ -89,7 +89,7 @@ NEXT_PUBLIC_ETHERSCAN_KEY=''
 
 ### ⚠️ Important!
 
-In order to run the app, you need the API keys.
+In order for the app to run, you need the API keys.
 For ConnectKit, grab your API key from the [Wallet Connect dashboard](https://cloud.walletconnect.com/sign-in). For Etherscan API create your account [here](https://etherscan.io/apis) to gain access to your API key. Finally, for the rapid API key, get it from [Rapid API](https://rapidapi.com/auth/sign-up?referral=/hub). The above proccess is free of charge.
 
 ### Starting the application
