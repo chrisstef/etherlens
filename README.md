@@ -38,7 +38,7 @@ Make sure you have `Node.js` and `npm/yarn` installed on your machine.
 
 To get started with GHO Lens, follow these steps:
 
-1. Clone the repository:
+1. Clone the project repository:
 
 ```bash
 git clone https://github.com/chrisstef/gho-lens.git
